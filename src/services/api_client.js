@@ -27,6 +27,6 @@ apiClient.interceptors.response.use((response) => {
     return Promise.reject({
         success: false,
         error: error,
-        message: error.response.data.message
+        message: error?.response?.data?.message || error?.message || 'An unexpected error occurred'
     })
 })
