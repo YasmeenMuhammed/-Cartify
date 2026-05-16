@@ -97,8 +97,8 @@ export default function Checkout() {
 
   if (isLoading) { return <HomeLoading /> }
 
-  const { cartId, noOfCartItems, data } = cartInfo;
-  const { totalCartPrice, products } = data;
+  const { cartId, noOfCartItems, data } = cartInfo || {};
+  const { totalCartPrice = 0, products = [] } = data || {};
 
 
 

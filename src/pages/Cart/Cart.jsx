@@ -12,7 +12,7 @@ export default function Cart() {
   const { cartInfo, isLoading, fetchDeleteCartItem, fetchDeleteAllCart } = useContext(CartContext);
   console.log(cartInfo);
   const { numOfCartItems, data } = cartInfo || {};
-  const { products, totalCartPrice } = data || {};
+  const { products = [], totalCartPrice = 0 } = data || {};
 
   const [shippingProgress, setShippingProgress] = useState(0);
 
