@@ -39,172 +39,241 @@ export default function NavBar() {
   }
 
   return (
-    <header>
-      {/* Top Nav */}
-      <nav className=' hidden lg:block border-b border-gray-300 pb-2 pt-4'>
-        <div className='flex justify-between px-4' >
-          <ul className='text-gray-700 flex *:flex *:items-center *:gap-2 gap-3 '>
-            <li>
-              <FaTruck className='text-primary-500' />
-              Free Shipping on Orders 500 EGP
+
+
+    <header className="w-full overflow-x-hidden">
+      {/* Mobile Menu */}
+
+      {/* Top Navbar */}
+      <nav className="hidden border-b border-gray-200 bg-white lg:block">
+        <div className="container mx-auto flex h-14 items-center justify-between px-4">
+
+          {/* Left Side */}
+          <ul className="flex items-center gap-5 text-sm text-gray-600">
+            <li className="flex items-center gap-2 whitespace-nowrap">
+              <FaTruck className="text-primary-500" />
+              <span>Free Shipping on Orders 500 EGP</span>
             </li>
-            <li >
-              <FaGift className='text-primary-500' />
-              New Arrivals Daily
+
+            <li className="flex items-center gap-2 whitespace-nowrap">
+              <FaGift className="text-primary-500" />
+              <span>New Arrivals Daily</span>
             </li>
-            {isOnline && <>
-              <li className='flex items-center text-sm text-green-500'>
-                <FaWifi />Online
+
+            {isOnline && (
+              <li className="flex items-center gap-2 text-green-500 whitespace-nowrap">
+                <FaWifi />
+                <span>Online</span>
               </li>
-            </>}
+            )}
           </ul>
-          <div className='flex gap-3 '>
-            <ul className='flex *:flex *:items-center *:gap-2 gap-3 pe-2 border-e border-gray-300'>
-              <li className='text-gray-600 hover:text-primary-500 transition-colors'>
-                <FaPhoneAlt />
-                <a href="tel:+1 (800) 123-4567">+1 (800) 123-4567</a>
+
+          {/* Right Side */}
+          <div className="flex items-center gap-5">
+            <ul className="flex items-center gap-4 border-e border-gray-200 pe-5 text-sm">
+              <li>
+                <a
+                  href="tel:+1 (800) 123-4567"
+                  className="flex items-center gap-2 text-gray-600 transition hover:text-primary-500"
+                >
+                  <FaPhoneAlt />
+                  +1 (800) 123-4567
+                </a>
               </li>
-              <li className='text-gray-600 hover:text-primary-500 transition-colors'>
-                <IoMdMail />
-                <a href="mailto:+1 (800) 123-4567">support@cartify.com</a>
+
+              <li>
+                <a
+                  href="mailto:support@cartify.com"
+                  className="flex items-center gap-2 text-gray-600 transition hover:text-primary-500"
+                >
+                  <IoMdMail />
+                  support@cartify.com
+                </a>
               </li>
             </ul>
-            <ul className='flex items-center gap-3 relative'>
+
+            {/* User */}
+            <div className="relative">
               {userInfo?.name ? (
-                <li className="relative">
+                <>
                   <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center gap-2 text-gray-700 hover:text-primary-500 font-medium transition-colors cursor-pointer focus:outline-none select-none"
+                    className="flex h-10 items-center gap-2 rounded-full px-2 transition hover:bg-gray-100"
                   >
-                    <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                      <FaRegUser className="text-sm" />
+                    <div className="flex size-9 items-center justify-center rounded-full bg-green-100 text-green-600">
+                      <FaRegUser />
                     </div>
-                    <span>{userInfo.name}</span>
+
+                    <span className="max-w-30 truncate font-medium text-gray-700">
+                      {userInfo.name}
+                    </span>
                   </button>
 
                   {isOpen && (
                     <>
-                      <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)}></div>
+                      <div
+                        className="fixed inset-0 z-30"
+                        onClick={() => setIsOpen(false)}
+                      />
 
-                      <div className="absolute right-0 mt-3 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 z-20 overflow-hidden text-slate-700">
+                      <div className="absolute right-0 top-14 z-40 w-72 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl">
 
-                        <div className="flex items-center gap-3 p-4 border-b border-gray-100">
-                          <div className="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-lg">
+                        <div className="flex items-center gap-3 border-b border-gray-100 p-4">
+                          <div className="flex size-11 items-center justify-center rounded-full bg-green-100 text-green-600">
                             <FaRegUser />
                           </div>
-                          <span className="font-bold text-slate-800">{userInfo.name}</span>
+
+                          <div>
+                            <h3 className="font-semibold text-slate-800">
+                              {userInfo.name}
+                            </h3>
+                          </div>
                         </div>
 
-                        <ul className="p-2 space-y-1">
+                        <ul className="space-y-1 p-2">
                           <li>
-                            <Link to="/account" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 text-slate-600 font-medium transition-colors">
-                              <FaRegUser className="text-slate-400 text-lg" />
-                              <span>My Profile</span>
+                            <Link
+                              to="/account"
+                              className="flex h-11 items-center gap-3 rounded-xl px-4 text-slate-600 transition hover:bg-slate-50"
+                            >
+                              <FaRegUser />
+                              My Profile
                             </Link>
                           </li>
+
                           <li>
-                            <Link to="/orders" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 text-slate-600 font-medium transition-colors">
-                              <FiBox className="text-slate-400 text-lg" />
-                              <span>My Orders</span>
+                            <Link
+                              to="/orders"
+                              className="flex h-11 items-center gap-3 rounded-xl px-4 text-slate-600 transition hover:bg-slate-50"
+                            >
+                              <FiBox />
+                              My Orders
                             </Link>
                           </li>
+
                           <li>
-                            <Link to="/wishlist" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 text-slate-600 font-medium transition-colors">
-                              <FaHeart className="text-slate-400 text-md" />
-                              <span>My Wishlist</span>
+                            <Link
+                              to="/wishlist"
+                              className="flex h-11 items-center gap-3 rounded-xl px-4 text-slate-600 transition hover:bg-slate-50"
+                            >
+                              <FaHeart />
+                              Wishlist
                             </Link>
                           </li>
+
                           <li>
-                            <Link to="/account" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 text-slate-600 font-medium transition-colors">
-                              <FiMapPin className="text-slate-400 text-lg" />
-                              <span>Addresses</span>
+                            <Link
+                              to="/account"
+                              className="flex h-11 items-center gap-3 rounded-xl px-4 text-slate-600 transition hover:bg-slate-50"
+                            >
+                              <FiMapPin />
+                              Addresses
                             </Link>
                           </li>
+
                           <li>
-                            <Link to="/account" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 text-slate-600 font-medium transition-colors">
-                              <FaCog className="text-slate-400 text-lg" />
-                              <span>Settings</span>
+                            <Link
+                              to="/account"
+                              className="flex h-11 items-center gap-3 rounded-xl px-4 text-slate-600 transition hover:bg-slate-50"
+                            >
+                              <FaCog />
+                              Settings
                             </Link>
                           </li>
                         </ul>
 
-                        <div className="p-2 border-t border-gray-100">
+                        <div className="border-t border-gray-100 p-2">
                           <button
-                            onClick={() => { logOut(); setIsOpen(false); }}
-                            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-red-50 text-red-500 font-bold transition-colors text-left"
+                            onClick={() => {
+                              logOut();
+                              setIsOpen(false);
+                            }}
+                            className="flex h-11 w-full items-center gap-3 rounded-xl px-4 text-red-500 transition hover:bg-red-50"
                           >
-                            <FiLogOut className="text-lg rotate-180" />
-                            <span>Sign Out</span>
+                            <FiLogOut className="rotate-180" />
+                            Sign Out
                           </button>
                         </div>
-
                       </div>
                     </>
                   )}
-                </li>
-              ) : (
-                <>
-                  <li>
-                    <Link to={'/login'} className='flex items-center gap-2 text-gray-600 hover:text-primary-500 transition-colors cursor-pointer'>
-                      <CiUser /> Sign In
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={'/signup'} className='flex items-center gap-2 text-gray-600 hover:text-primary-500 transition-colors cursor-pointer'>
-                      <FaUserPlus /> Sign Up
-                    </Link>
-                  </li>
                 </>
-              )}
-            </ul>
+              ) : (
+                <div className="flex items-center gap-4 text-sm">
+                  <Link
+                    to="/login"
+                    className="flex items-center gap-2 text-gray-600 transition hover:text-primary-500"
+                  >
+                    <CiUser />
+                    Sign In
+                  </Link>
 
+                  <Link
+                    to="/signup"
+                    className="flex items-center gap-2 text-gray-600 transition hover:text-primary-500"
+                  >
+                    <FaUserPlus />
+                    Sign Up
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
-      {/* bottom Nav */}
-      <nav className="w-full bg-white">
+
+      {/* Main Navbar */}
+      <nav className="sticky top-0 z-20 border-b border-gray-100 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-between gap-3 lg:h-[76px] lg:gap-5">
+
+          <div className="flex min-h-18 items-center justify-between gap-3">
+
             {/* Logo */}
             <Link to="/" className="shrink-0">
-              <div className="logo flex items-center gap-2">
-                <img className="w-9 sm:w-10" src={miniLogo} alt="cartifyLogo" />
-                <h1 className="text-xl font-bold sm:text-2xl">Cartify</h1>
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-9 sm:w-10"
+                  src={miniLogo}
+                  alt="cartifyLogo"
+                />
+
+                <h1 className="text-xl font-bold sm:text-2xl">
+                  Cartify
+                </h1>
               </div>
             </Link>
 
-            {/* Search Input */}
-            <div className="relative hidden flex-1 lg:block">
+            {/* Search */}
+            <div className="hidden flex-1 lg:block">
               <form
                 onSubmit={handleSearch}
-                className="flex items-center"
+                className="relative mx-auto max-w-2xl"
               >
                 <input
                   type="text"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  placeholder="Search for products, brands and more..."
+                  placeholder="Search for products..."
                   className="h-12 w-full rounded-full border border-gray-200 bg-gray-50 ps-5 pe-14 text-sm outline-none transition focus:border-primary-500 focus:bg-white"
                 />
 
                 <button
                   type="submit"
-                  className="absolute right-1.5 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full bg-primary-500 text-white transition-colors duration-300 hover:bg-primary-700"
+                  className="absolute right-1 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-primary-500 text-white transition hover:bg-primary-700"
                 >
                   <FaSearch />
                 </button>
-
               </form>
-
             </div>
 
             {/* Desktop Links */}
-            <ul className="hidden items-center gap-4 lg:flex">
+            <ul className="hidden items-center gap-6 lg:flex">
               <li>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    `${isActive ? "text-primary-500" : "text-gray-600"} hover:text-primary-500 transition-colors`
+                    `${isActive ? "text-primary-500" : "text-gray-600"
+                    } font-medium transition hover:text-primary-500`
                   }
                 >
                   Home
@@ -215,59 +284,32 @@ export default function NavBar() {
                 <NavLink
                   to="/products"
                   className={({ isActive }) =>
-                    `${isActive ? "text-primary-500" : "text-gray-600"} hover:text-primary-500 transition-colors`
+                    `${isActive ? "text-primary-500" : "text-gray-600"
+                    } font-medium transition hover:text-primary-500`
                   }
                 >
                   Shop
                 </NavLink>
               </li>
 
-              <li className="relative group">
+              <li>
                 <NavLink
                   to="/categories"
                   className={({ isActive }) =>
-                    `${isActive ? "text-primary-500" : "text-gray-600"} flex items-center hover:text-primary-500 transition-colors`
+                    `${isActive ? "text-primary-500" : "text-gray-600"
+                    } font-medium transition hover:text-primary-500`
                   }
                 >
                   Categories
-                  <IoIosArrowDown className="transition-transform duration-200 group-hover:rotate-180" />
                 </NavLink>
-
-                <div className="invisible z-999 absolute top-8  min-w-52 overflow-hidden rounded-2xl border border-gray-100 bg-white opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                  <ul className="divide-y-2 divide-gray-100 py-3">
-                    <li className="flex items-center px-4 py-2 text-gray-600 hover:bg-primary-100 hover:text-primary-600">
-                      <BiSolidCategory />
-                      <Link className="ms-3" to="/categories">All Categories</Link>
-                    </li>
-
-                    <li className="flex items-center px-4 py-2 text-gray-600 hover:bg-primary-100 hover:text-primary-600">
-                      <FaMobileRetro />
-                      <Link className="ms-3" to="/products?category[in]=6439d2d167d9aa4ca970649f">Electronics</Link>
-                    </li>
-
-                    <li className="flex items-center px-4 py-2 text-gray-600 hover:bg-primary-100 hover:text-primary-600">
-                      <GrRestroomWomen className="text-xl" />
-                      <Link className="ms-3" to="/products?category[in]=6439d58a0049ad0b52b9003f">Women's Fashion</Link>
-                    </li>
-
-                    <li className="flex items-center px-4 py-2 text-gray-600 hover:bg-primary-100 hover:text-primary-600">
-                      <IoIosMan className="text-xl" />
-                      <Link className="ms-3" to="/products?category[in]=6439d5b90049ad0b52b90048">Men's Fashion</Link>
-                    </li>
-
-                    <li className="flex items-center px-4 py-2 text-gray-600 hover:bg-primary-100 hover:text-primary-600">
-                      <GiHealthPotion className="text-xl" />
-                      <Link className="ms-3" to="/products?category[in]=6439d30b67d9aa4ca97064b1">Beauty & Health</Link>
-                    </li>
-                  </ul>
-                </div>
               </li>
 
               <li>
                 <NavLink
                   to="/brands"
                   className={({ isActive }) =>
-                    `${isActive ? "text-primary-500" : "text-gray-600"} hover:text-primary-500 transition-colors`
+                    `${isActive ? "text-primary-500" : "text-gray-600"
+                    } font-medium transition hover:text-primary-500`
                   }
                 >
                   Brands
@@ -276,169 +318,229 @@ export default function NavBar() {
             </ul>
 
             {/* Actions */}
-            <ul className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <div className="flex shrink-0 items-center gap-2">
+
+              {/* Wishlist */}
               <Link to="/wishlist">
-                <li className="flex size-10 items-center justify-center rounded-full bg-white text-gray-600 transition-all duration-100 hover:bg-gray-100 hover:text-primary-500">
+                <div className="flex size-10 items-center justify-center rounded-full text-gray-600 transition hover:bg-gray-100 hover:text-primary-500">
                   <FaRegHeart className="text-xl" />
-                </li>
+                </div>
               </Link>
 
+              {/* Cart */}
               <Link to="/cart">
-                <li className="relative flex size-10 items-center justify-center rounded-full bg-white text-gray-600 transition-all duration-100 hover:bg-gray-100 hover:text-primary-500">
-                  <IoIosCart className="text-2xl" />
+                <div className="relative flex size-10 items-center justify-center rounded-full text-gray-600 transition hover:bg-gray-100 hover:text-primary-500">
+
+                  <IoIosCart className="text-3xl" />
+
                   <span className="absolute right-0 top-0 flex size-5 items-center justify-center rounded-full bg-primary-500 text-xs text-white">
                     {isLoading ? (
                       <CgSpinner className="animate-spin" />
                     ) : (
-                      token ? (cartInfo?.numOfCartItems || 0) : 0
+                      token
+                        ? cartInfo?.numOfCartItems || 0
+                        : 0
                     )}
                   </span>
-                </li>
+                </div>
               </Link>
 
-              <button
-                className="btn flex size-10 items-center justify-center bg-primary-500 p-0 text-2xl text-white lg:hidden"
-                onClick={toggleMenu}
-              >
-                {isMenuOpen ? <FaXmark /> : <IoMdMenu />}
-              </button>
-
+              {/* Auth Button */}
               {!token ? (
-                <Link to="/login">
-                  <button className="hidden items-center gap-1 rounded-full bg-primary-500 px-4 py-2 text-sm text-white transition-colors duration-300 hover:bg-primary-700 lg:flex">
-                    <CiUser className="text-xl" />
-                    <span>Sign in</span>
+                <Link to="/login" className="hidden lg:block">
+                  <button className="flex h-11 items-center gap-2 rounded-full bg-primary-500 px-5 text-sm font-medium text-white transition hover:bg-primary-700">
+                    <CiUser className="text-lg" />
+                    Sign In
                   </button>
                 </Link>
               ) : (
-                <Link to="/login">
-                  <button
-                    onClick={logOut}
-                    className="hidden items-center gap-1 rounded-full bg-primary-500 px-4 py-2 text-sm text-white transition-colors duration-300 hover:bg-primary-700 lg:flex"
-                  >
-                    <CiUser className="text-xl" />
-                    <span>Log Out</span>
-                  </button>
-                </Link>
+                <button
+                  onClick={logOut}
+                  className="hidden h-11 items-center gap-2 rounded-full bg-primary-500 px-5 text-sm font-medium text-white transition hover:bg-primary-700 lg:flex"
+                >
+                  <FiLogOut />
+                  Logout
+                </button>
               )}
-            </ul>
-          </div>
-        </div>
-      </nav>
 
-      {isMenuOpen && <>
-
-        <div className=' background fixed inset-0 bg-black/50 z-30' onClick={toggleMenu}></div>
-        <div className=' offcanvas divide-y-2 *:py-7 divide-gray-100 z-40 bg-white fixed bottom-0 top-0 p-5 animate-slide-in'>
-          <div className=' flex justify-between items-center'>
-            <div className="logo">
-              <Link to={'/home'} className='flex'>
-                <img className='w-10' src={miniLogo} alt="cartifyLogo" />
-                <h1 className='text-3xl font-bold'>Cartify</h1>
-              </Link>
-
+              {/* Mobile Menu */}
+              <button
+                onClick={toggleMenu}
+                className="flex size-10 items-center justify-center rounded-full bg-primary-500 text-white lg:hidden"
+              >
+                {isMenuOpen ? <FaXmark /> : <IoMdMenu />}
+              </button>
             </div>
-            <button className='btn rounded-full p-3' onClick={toggleMenu}>
-              <FaXmark />
-            </button>
           </div>
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder="Search for Products..."
-              className="h-12 w-full rounded-full border border-gray-200 bg-gray-50 ps-4 pe-14 text-sm outline-none focus:border-primary-500"
-            />
-
-            <button
-              type="button"
-              className="absolute right-1.5 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full bg-primary-500 text-white transition-colors duration-300 hover:bg-primary-700"
-            >
-              <FaSearch />
-            </button>
-          </div>
-
-          <ul className='flex  gap-1 flex-col'>
-            <li>
-              <NavLink to={'/'} className={({ isActive }) => { return `${isActive ? 'text-primary-500' : ''} text-gray-600 hover:text-primary-500 transition-colors` }}>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={'/products'} className={({ isActive }) => { return `${isActive ? 'text-primary-500' : ''} text-gray-600 hover:text-primary-500 transition-colors` }}>
-                Shop
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={'/categories'} className={({ isActive }) => { return `${isActive ? 'text-primary-500' : ''} text-gray-600 hover:text-primary-500 transition-colors` }}>
-                Categories
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={'/brands'} className={({ isActive }) => { return `${isActive ? 'text-primary-500' : ''} text-gray-600 hover:text-primary-500 transition-colors` }}>
-                Brands
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={'/brands'} className={({ isActive }) => { return `${isActive ? 'text-primary-500' : ''} text-gray-600 hover:text-primary-500 transition-colors` }}>
-                Brands
-              </NavLink>
-            </li>
-
-          </ul>
-          <ul className='flex  gap-1 flex-nowrap ' >
-            <Link to={'/wishlist'}>
-              <li className='bg-white gap-2 p-2  transition-all duration-100 hover:bg-gray-100  text-gray-600 hover:text-primary-500 flex items-center '>
-                <FaRegHeart className='text-2xl' />
-                <span>WishList</span>
-              </li>
-            </Link>
-            <Link to={'/cart'}>
-              <li className='bg-white gap-2 p-2 transition-all duration-100 hover:bg-gray-100  text-gray-600 hover:text-primary-500 flex items-center '>
-                <IoIosCart className='text-3xl' />
-                <span>Cart</span>
-              </li>
-
-            </Link>
-          </ul>
-          <div className='flex'>
-            {!token ? <>
-              <Link to={'/login'}>
-                <button className='bg-primary-500 w-40 hover:bg-primary-700 transition-colors duration-300 text-white text-md flex items-center gap-1 py-2 px-1.5 rounded-xl'>
-                  <CiUser className='text-xl' />
-                  Sign In
-                </button>
-              </Link>
-              <Link to={'/signup'}>
-                <button className='text-primary-500 w-40 border-2 border-primary-500  hover:bg-gray-100/50 transition-colors duration-300 bg-white text-md flex items-center gap-1 py-2 px-1.5 rounded-xl'>
-                  <CiUser className='text-xl' />
-                  Sign Up
-                </button>
-              </Link></> : <>
-              <Link to={'/login'}>
-                <button onClick={logOut} className='bg-primary-500 w-40 hover:bg-primary-700 transition-colors duration-300 text-white text-md flex items-center gap-1 py-2 px-1.5 rounded-xl'>
-                  <CiUser className='text-xl' />
-                  Log Out
-                </button>
-              </Link>
-            </>}
-          </div>
-          <div >
-            <NavLink to={'/contact'} className='text-gray-600 hover:text-gray-500 transition-colors flex items-center gap-1'>
-              <div className='size-10 rounded-full bg-primary-100 flex items-center justify-center'>
-                <FaHeadphones className='text-xl text-primary-500' />
-              </div>
-              <div className='flex flex-col'>
-                <span className='text-gray-400'>Need Help?</span>
-                <span>Contact Support</span>
-              </div>
-            </NavLink>
-          </div>
-
-
-
         </div>
-      </>}
+        {/* Mobile Menu */}
+        <>
+          {/* Overlay */}
+          <div
+            onClick={toggleMenu}
+            className={`
+      fixed inset-0 z-998 bg-black/50 transition-all duration-300 lg:hidden
+      ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"}
+    `}
+          />
 
+          {/* Sidebar */}
+          <div
+            className={`
+      fixed left-0 top-0 z-999 h-screen w-[85%] max-w-[320px]
+      overflow-y-auto bg-white p-5 shadow-2xl transition-transform
+      duration-300 ease-in-out lg:hidden
+      
+      ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
+    `}
+          >
+            {/* Top */}
+            <div className="flex items-center justify-between border-b border-gray-100 pb-5">
+              <Link
+                to="/"
+                onClick={toggleMenu}
+                className="flex items-center gap-2"
+              >
+                <img
+                  className="w-10"
+                  src={miniLogo}
+                  alt="logo"
+                />
+
+                <h1 className="text-2xl font-bold">
+                  Cartify
+                </h1>
+              </Link>
+
+              <button
+                onClick={toggleMenu}
+                className="flex size-10 items-center justify-center rounded-full bg-gray-100 transition hover:bg-gray-200"
+              >
+                <FaXmark />
+              </button>
+            </div>
+
+            {/* Search */}
+            <form
+              onSubmit={(e) => {
+                handleSearch(e);
+                toggleMenu();
+              }}
+              className="relative my-6"
+            >
+              <input
+                type="text"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                placeholder="Search products..."
+                className="h-12 w-full rounded-full border border-gray-200 bg-gray-50 ps-4 pe-14 text-sm outline-none focus:border-primary-500"
+              />
+
+              <button
+                type="submit"
+                className="absolute right-1 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-primary-500 text-white"
+              >
+                <FaSearch />
+              </button>
+            </form>
+
+            {/* Links */}
+            <ul className="flex flex-col gap-2 border-b border-gray-100 pb-6">
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={toggleMenu}
+                  className="flex h-12 items-center rounded-xl px-4 text-gray-700 transition hover:bg-primary-50 hover:text-primary-500"
+                >
+                  Home
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/products"
+                  onClick={toggleMenu}
+                  className="flex h-12 items-center rounded-xl px-4 text-gray-700 transition hover:bg-primary-50 hover:text-primary-500"
+                >
+                  Shop
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/categories"
+                  onClick={toggleMenu}
+                  className="flex h-12 items-center rounded-xl px-4 text-gray-700 transition hover:bg-primary-50 hover:text-primary-500"
+                >
+                  Categories
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/brands"
+                  onClick={toggleMenu}
+                  className="flex h-12 items-center rounded-xl px-4 text-gray-700 transition hover:bg-primary-50 hover:text-primary-500"
+                >
+                  Brands
+                </NavLink>
+              </li>
+            </ul>
+
+            {/* Bottom Buttons */}
+            <div className="mt-6 flex flex-col gap-3">
+              {!token ? (
+                <>
+                  <Link to="/login" onClick={toggleMenu}>
+                    <button className="h-12 w-full rounded-xl bg-primary-500 text-white transition hover:bg-primary-700">
+                      Sign In
+                    </button>
+                  </Link>
+
+                  <Link to="/signup" onClick={toggleMenu}>
+                    <button className="h-12 w-full rounded-xl border border-primary-500 text-primary-500 transition hover:bg-primary-50">
+                      Sign Up
+                    </button>
+                  </Link>
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    logOut();
+                    toggleMenu();
+                  }}
+                  className="h-12 w-full rounded-xl bg-primary-500 text-white transition hover:bg-primary-700"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
+
+            {/* Contact */}
+            <div className="mt-8 border-t border-gray-100 pt-6">
+              <NavLink
+                to="/contact"
+                onClick={toggleMenu}
+                className="flex items-center gap-3"
+              >
+                <div className="flex size-12 items-center justify-center rounded-full bg-primary-100">
+                  <FaHeadphones className="text-primary-500" />
+                </div>
+
+                <div className="flex flex-col">
+                  <span className="text-sm text-gray-400">
+                    Need Help?
+                  </span>
+
+                  <span className="font-medium text-gray-700">
+                    Contact Support
+                  </span>
+                </div>
+              </NavLink>
+            </div>
+          </div>
+        </>
+      </nav>
     </header>
   )
 }

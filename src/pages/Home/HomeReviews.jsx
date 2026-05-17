@@ -44,28 +44,48 @@ export default function HomeReviews() {
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={20}
-          slidesPerView={3}
+
+          // الموبايل
+          slidesPerView={1}
+
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 5 },
+
+            // tablet / md
+            768: {
+              slidesPerView: 2,
+            },
+
+            // desktop
+            1024: {
+              slidesPerView: 3,
+            },
           }}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true, dynamicBullets: true }}
+
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+
           className="pb-16"
         >
           {reviews.map((review) => (
             <SwiperSlide key={review._id || review.id} className="h-auto">
               <div className="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 h-full flex flex-col relative group hover:shadow-md transition-shadow">
                 <FaQuoteLeft className="absolute top-8 right-8 text-4xl text-gray-100 group-hover:text-primary-50 transition-colors" />
-                
+
                 <div className="mb-6">
                   <Rating rating={review.ratings || review.rating || 0} />
                 </div>
-                
+
                 <p className="text-gray-600 leading-relaxed mb-8 flex-1 relative z-10 italic">
                   "{review.title || review.review}"
                 </p>
-                
+
                 <div className="flex items-center gap-4 mt-auto">
                   {review.user?.profilePic ? (
                     <img src={review.user.profilePic} alt={review.user.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary-100" />

@@ -61,13 +61,13 @@ export default function Cart() {
               </ul>
             </div>
             <div className="flex items-center justify-between">
-              <h1 className='text-3xl font-bold text-gray-900 items-center gap-3 flex'>
-                <span className="bg-linear-to-r from-primary-600 to-primary-700 text-white size-12 rounded-xl flex items-center justify-center">
-                  <FaShoppingCart />
+              <h1 className='md:text-3xl font-bold text-gray-900 items-center gap-3 flex'>
+                <span className="bg-linear-to-r from-primary-600 to-primary-700 text-white size-10 md:size-12 rounded-xl flex items-center justify-center">
+                  <FaShoppingCart className='text-sm md:text-lg' />
                 </span>
                 Shopping Cart
               </h1>
-              <p className='text-gray-500'>
+              <p className='text-gray-500 text-sm md:text-lg'>
                 You have <span className='font-semibold text-primary-600'>{numOfCartItems}</span> item(s) in your cart
               </p>
             </div>

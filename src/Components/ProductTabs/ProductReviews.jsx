@@ -100,7 +100,7 @@ export default function ProductReviews({ productId }) {
               value={reviewData}
               onChange={(e) => setReviewData(e.target.value)}
               placeholder="What did you like or dislike? What did you use this product for?"
-              className="w-full min-h-[120px] p-4 rounded-xl border border-gray-200 outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all resize-y"
+              className="w-full min-h-30 p-4 rounded-xl border border-gray-200 outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all resize-y"
             ></textarea>
           </div>
 
