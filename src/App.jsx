@@ -23,6 +23,7 @@ import Search from "./pages/Search/Search"
 import Account from "./pages/Account/Account"
 import Contact from "./pages/Contact/Contact"
 import Privacy from "./pages/Privacy/Privacy"
+import ThemeProvider from "./Context/Theme.context"
 
 function App() {
   const router = createBrowserRouter([
@@ -53,7 +54,7 @@ function App() {
           path: "*", element: <NotFound />
         },
         {
-          path: "orders", element: <ProtectedRoute><Orders /></ProtectedRoute>
+          path: "allorders", element: <ProtectedRoute><Orders /></ProtectedRoute>
         },
         {
           path: "search", element: <Search />
@@ -83,9 +84,8 @@ function App() {
   ])
 
   return (
-    <>
+    <ThemeProvider>
       <OfflineScreen>
-
         <AuthProvider>
           <CartProvider>
             <ProductContextProvider>
@@ -95,11 +95,9 @@ function App() {
               </CategoriesProvider>
             </ProductContextProvider>
           </CartProvider>
-
         </AuthProvider>
       </OfflineScreen>
-
-    </>
+    </ThemeProvider>
   )
 }
 

@@ -231,7 +231,7 @@ export default function Search() {
                       Max Price
                     </h3>
 
-                    <span className="rounded-full bg-emerald-100 px-4 py-1 text-sm font-bold text-emerald-700">
+                    <span className="rounded-full bg-violet-100 px-4 py-1 text-sm font-bold text-violet-700">
                       {maxPrice} EGP
                     </span>
 
@@ -246,7 +246,7 @@ export default function Search() {
                     onChange={(e) =>
                       setMaxPrice(Number(e.target.value))
                     }
-                    className="w-full cursor-pointer accent-emerald-500"
+                    className="w-full cursor-pointer accent-violet-500"
                   />
 
                 </div>
@@ -267,7 +267,7 @@ export default function Search() {
                       }
                       className={`w-full rounded-2xl px-4 py-3 text-left transition
                         ${selectedCategory === ""
-                          ? "bg-emerald-500 text-white"
+                          ? "bg-violet-500 text-white"
                           : "bg-gray-100 text-gray-700"
                         }`}
                     >
@@ -282,7 +282,7 @@ export default function Search() {
                         }
                         className={`w-full rounded-2xl px-4 py-3 text-left transition
                           ${selectedCategory === category
-                            ? "bg-emerald-500 text-white"
+                            ? "bg-violet-500 text-white"
                             : "bg-gray-100 text-gray-700"
                           }`}
                       >
@@ -300,7 +300,7 @@ export default function Search() {
 
                   <div className="mb-3 flex items-center gap-2">
 
-                    <FaSortAmountDown className="text-emerald-600" />
+                    <FaSortAmountDown className="text-violet-600" />
 
                     <h3 className="font-bold text-gray-800">
                       Sort By
@@ -342,7 +342,7 @@ export default function Search() {
                             className={({ active }) =>
                               `px-5 py-3 cursor-pointer
                               ${active
-                                ? "bg-emerald-500 text-white"
+                                ? "bg-violet-500 text-white"
                                 : ""
                               }`
                             }
@@ -403,7 +403,7 @@ export default function Search() {
                 {/* SEARCH */}
 
                 {keyword && (
-                  <div className="flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700">
+                  <div className="flex items-center gap-2 rounded-full bg-violet-100 px-4 py-2 text-sm font-medium text-violet-700">
 
                     <span>
                       Search: {keyword}
@@ -548,7 +548,7 @@ export default function Search() {
                         onClick={() => setCurrentPage(page)}
                         className={`h-11 w-11 rounded-xl transition
                           ${currentPage === page
-                            ? "bg-emerald-500 text-white"
+                            ? "bg-violet-500 text-white"
                             : "border bg-white"
                           }`}
                       >

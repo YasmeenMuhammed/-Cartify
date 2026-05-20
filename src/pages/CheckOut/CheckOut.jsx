@@ -56,7 +56,7 @@ export default function Checkout() {
         } else {
           toast.success('Order placed successfully!');
           setTimeout(() => {
-            navigate('/orders');
+            navigate('/allorders');
           }, 3000);
           setCartInfo({
             noOfCartItems: 0,
@@ -145,7 +145,7 @@ export default function Checkout() {
           {/* Header */}
           <div className="mb-8 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="flex size-10 items-center justify-center rounded-xl bg-green-600 text-white shadow-md">
+              <div className="flex size-10 items-center justify-center rounded-xl bg-violet-600 text-white shadow-md">
                 <FaClipboardList className="text-2xl" />
               </div>
               <div className="flex flex-col">
@@ -160,7 +160,7 @@ export default function Checkout() {
               </div>
             </div>
 
-            <button className="flex items-center gap-2 text-sm font-medium text-green-600 transition hover:text-green-700">
+            <button className="flex items-center gap-2 text-sm font-medium text-violet-600 transition hover:text-violet-700">
               <FaArrowLeft />
               Back to Cart
             </button>
@@ -173,14 +173,14 @@ export default function Checkout() {
               {/* Shipping Address */}
               <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
                 {/* Header */}
-                <div className="bg-green-600 px-6 py-3 text-white">
+                <div className="bg-violet-600 px-6 py-3 text-white">
                   <div className="flex items-center gap-3">
                     <FaHome className="text-lg" />
                     <div>
                       <h2 className="text-lg font-semibold">
                         Shipping Address
                       </h2>
-                      <p className="text-sm text-green-100">
+                      <p className="text-sm text-violet-100">
                         Where should we deliver your order?
                       </p>
                     </div>
@@ -213,7 +213,7 @@ export default function Checkout() {
                       City <span className="text-red-500">*</span>
                     </label>
 
-                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-green-500">
+                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-violet-500">
                       <FaHome className="text-gray-400" />
 
                       <input
@@ -240,7 +240,7 @@ export default function Checkout() {
                       Street Address <span className="text-red-500">*</span>
                     </label>
 
-                    <div className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-green-500">
+                    <div className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-violet-500">
                       <FaMapMarkerAlt className="mt-1 text-gray-400" />
 
                       <textarea
@@ -268,7 +268,7 @@ export default function Checkout() {
                       Phone Number <span className="text-red-500">*</span>
                     </label>
 
-                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-2 transition focus-within:border-green-500">
+                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-2 transition focus-within:border-violet-500">
                       <FaPhoneAlt className="text-gray-400" />
 
                       <input
@@ -307,7 +307,7 @@ export default function Checkout() {
                         Payment Method
                       </h2>
 
-                      <p className="text-sm text-green-100">
+                      <p className="text-sm text-violet-100">
                         Choose how you'd like to pay
                       </p>
                     </div>
@@ -318,15 +318,15 @@ export default function Checkout() {
                   {/* Cash On Delivery */}
                   <label
                     className={`flex cursor-pointer items-center justify-between rounded-2xl border p-3 transition ${formik.values.paymentMethod === "cash"
-                      ? "border-green-500 bg-green-50"
-                      : "border-gray-200 bg-white hover:border-green-300"
+                      ? "border-violet-500 bg-violet-50"
+                      : "border-gray-200 bg-white hover:border-violet-300"
                       }`}
                     htmlFor="cash"
                   >
                     <div className="flex items-center gap-4">
                       <div
                         className={`flex size-10 items-center justify-center rounded-xl ${formik.values.paymentMethod === "cash"
-                          ? "bg-green-500 text-white"
+                          ? "bg-violet-500 text-white"
                           : "bg-gray-100 text-gray-500"
                           }`}
                       >
@@ -358,7 +358,7 @@ export default function Checkout() {
                     {/* Custom Check Circle */}
                     <div
                       className={`flex h-7 w-7 items-center justify-center rounded-full border-2 transition ${formik.values.paymentMethod === "cash"
-                        ? "border-green-600 bg-green-600 text-white"
+                        ? "border-violet-600 bg-violet-600 text-white"
                         : "border-gray-300 bg-white"
                         }`}
                     >
@@ -369,8 +369,8 @@ export default function Checkout() {
                   {/* Pay Online */}
                   <label
                     className={`flex cursor-pointer items-center justify-between rounded-2xl border p-4 transition ${formik.values.paymentMethod === "online"
-                      ? "border-green-500 bg-[#f4fbf8]"
-                      : "border-gray-200 bg-white hover:border-green-300"
+                      ? "border-violet-500 bg-[#f4fbf8]"
+                      : "border-gray-200 bg-white hover:border-violet-300"
                       }`}
                   >
                     <div className="flex items-center gap-4">
@@ -386,7 +386,7 @@ export default function Checkout() {
                       <div>
                         <h3
                           className={`font-semibold ${formik.values.paymentMethod === "online"
-                            ? "text-green-700"
+                            ? "text-violet-700"
                             : "text-slate-900"
                             }`}
                         >
@@ -427,7 +427,7 @@ export default function Checkout() {
                     {/* Custom Check Circle */}
                     <div
                       className={`flex h-7 w-7 items-center justify-center rounded-full border-2 transition ${formik.values.paymentMethod === "online"
-                        ? "border-green-600 bg-green-600 text-white"
+                        ? "border-violet-600 bg-violet-600 text-white"
                         : "border-gray-300 bg-white"
                         }`}
                     >
@@ -435,17 +435,17 @@ export default function Checkout() {
                     </div>
                   </label>
                   {/* Security Box */}
-                  <div className="flex items-center gap-4 rounded-2xl bg-green-50 p-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
+                  <div className="flex items-center gap-4 rounded-2xl bg-violet-50 p-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-100 text-violet-600">
                       <FaShieldAlt />
                     </div>
 
                     <div>
-                      <h4 className="font-semibold text-green-700">
+                      <h4 className="font-semibold text-violet-700">
                         Secure & Encrypted
                       </h4>
 
-                      <p className="text-sm text-green-600">
+                      <p className="text-sm text-violet-600">
                         Your payment info is protected with 256-bit SSL
                         encryption
                       </p>
@@ -459,13 +459,13 @@ export default function Checkout() {
             {/* Right Side */}
             <div className="h-fit overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
               {/* Header */}
-              <div className="bg-green-600 px-4 py-3 text-white">
+              <div className="bg-violet-600 px-4 py-3 text-white">
                 <div className="flex items-center gap-3">
                   <FaShoppingBag />
 
                   <div>
                     <h2 className="text-lg font-semibold">Order Summary</h2>
-                    <p className="text-sm text-green-100">
+                    <p className="text-sm text-violet-100">
                       {products.length} items
                     </p>
                   </div>
@@ -510,7 +510,7 @@ export default function Checkout() {
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Shipping</span>
 
-                  <span className="font-semibold text-green-600">FREE</span>
+                  <span className="font-semibold text-violet-600">FREE</span>
                 </div>
 
                 <div className="flex items-end justify-between border-t border-gray-200 pt-4">
@@ -519,7 +519,7 @@ export default function Checkout() {
                   </span>
 
                   <div className="flex items-end gap-1">
-                    <span className="text-2xl font-bold text-green-600">
+                    <span className="text-2xl font-bold text-violet-600">
                       {subtotal.toLocaleString()}
                     </span>
 
@@ -528,7 +528,7 @@ export default function Checkout() {
                 </div>
 
                 {/* Button */}
-                <button type="submit" className="mt-2 flex w-full items-center justify-center gap-3 rounded-2xl bg-green-600 py-2 text-lg font-semibold text-white transition hover:bg-green-700">
+                <button type="submit" className="mt-2 flex w-full items-center justify-center gap-3 rounded-2xl bg-violet-600 py-2 text-lg font-semibold text-white transition hover:bg-violet-700">
                   <FaLock />
                   {formik.values.paymentMethod === "cash"
                     ? "Place Order"
@@ -539,7 +539,7 @@ export default function Checkout() {
                 {/* Features */}
                 <div className="flex items-center justify-center gap-5 pt-2 text-xs text-gray-500">
                   <div className="flex items-center gap-1">
-                    <FaLock className="text-green-500" />
+                    <FaLock className="text-violet-500" />
                     Secure
                   </div>
 

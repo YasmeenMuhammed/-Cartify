@@ -107,12 +107,12 @@ export default function Products() {
         <div className="mb-8 flex flex-wrap items-center gap-3">
           {brandId || categoryId ? (
             <>
-              <span className="font-semibold text-gray-700">
+              <span className="font-semibold text-gray-700 dark:text-slate-200">
                 Active Filters:
               </span>
 
               {hasProducts && (
-                <div className="flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700">
+                <div className="flex items-center gap-2 rounded-full bg-violet-100 dark:bg-violet-950/50 px-4 py-2 text-sm font-medium text-violet-700 dark:text-violet-300">
                   <span>
                     {brandId
                       ? products?.[0]?.brand?.name
@@ -131,7 +131,7 @@ export default function Products() {
               )}
             </>
           ) : (
-            <span className="font-semibold text-gray-700">
+            <span className="font-semibold text-gray-700 dark:text-slate-200">
               All Products
             </span>
           )}
@@ -141,7 +141,7 @@ export default function Products() {
               onClick={() => {
                 setSearchParams({});
               }}
-              className="text-sm text-gray-500 underline hover:text-black"
+              className="text-sm text-gray-500 dark:text-slate-400 underline hover:text-black dark:hover:text-slate-200"
             >
               Clear all
             </button>
@@ -152,7 +152,7 @@ export default function Products() {
 
         {hasProducts ? (
           <>
-            <p className="mb-6 text-gray-500">
+            <p className="mb-6 text-gray-500 dark:text-slate-400">
               Showing {products.length} products
             </p>
 
@@ -173,7 +173,7 @@ export default function Products() {
                   <button
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage((prev) => prev - 1)}
-                    className="rounded-xl border px-4 py-2 disabled:opacity-50"
+                    className="rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 px-4 py-2 hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-50"
                   >
                     Prev
                   </button>
@@ -188,8 +188,8 @@ export default function Products() {
                         onClick={() => setCurrentPage(page)}
                         className={`size-10 rounded-xl transition
               ${currentPage === page
-                            ? "bg-primary-500 text-white"
-                            : "border hover:bg-gray-100"
+                            ? "bg-primary-500 text-white shadow-md shadow-primary-500/20"
+                            : "border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-350 hover:bg-gray-100 dark:hover:bg-slate-800"
                           }`}
                       >
                         {page}
@@ -201,7 +201,7 @@ export default function Products() {
                   <button
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage((prev) => prev + 1)}
-                    className="rounded-xl border px-4 py-2 disabled:opacity-50"
+                    className="rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 px-4 py-2 hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-50"
                   >
                     Next
                   </button>
@@ -211,15 +211,15 @@ export default function Products() {
           </>
         ) : (
           <div className="flex flex-col items-center justify-center py-24 text-center">
-            <div className="mb-6 flex size-24 items-center justify-center rounded-full bg-gray-100">
-              <FaBoxOpen className="text-4xl text-gray-400" />
+            <div className="mb-6 flex size-24 items-center justify-center rounded-full bg-gray-100 dark:bg-slate-900 border dark:border-slate-800">
+              <FaBoxOpen className="text-4xl text-gray-400 dark:text-slate-500" />
             </div>
 
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-slate-100">
               No Products Found
             </h2>
 
-            <p className="mt-3 max-w-md text-gray-500">
+            <p className="mt-3 max-w-md text-gray-500 dark:text-slate-400">
               No products match your current filters.
             </p>
 
@@ -227,7 +227,7 @@ export default function Products() {
               onClick={() => {
                 setSearchParams({});
               }}
-              className="mt-8 rounded-2xl bg-emerald-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-emerald-700"
+              className="mt-8 rounded-2xl bg-violet-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-violet-700 shadow-md shadow-violet-600/10"
             >
               View All Products
             </button>

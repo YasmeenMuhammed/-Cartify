@@ -41,32 +41,32 @@ export default function HomeDeals() {
                 <div className="flex justify-between items-center py-8">
                     <div className=" flex flex-col">
                         <div className="title flex gap-3 items-center">
-                            <div className='h-8 w-1.5 bg-linear-to-b from-emerald-500 to-emerald-700 rounded-full'></div>
+                            <div className='h-8 w-1.5 bg-linear-to-b from-violet-500 to-violet-700 rounded-full'></div>
                             <h2>
-                                <Link className='font-bold text-4xl md:text-2xl text-gray-800'>
-                                    Hot <span className=' text-transparent bg-clip-text bg-linear-to-b from-emerald-500 to-emerald-700'>Deals</span>
+                                <Link className='font-bold text-4xl md:text-2xl text-gray-800 dark:text-slate-100'>
+                                    Hot <span className=' text-transparent bg-clip-text bg-linear-to-b from-violet-500 to-violet-700'>Deals</span>
                                 </Link>
                             </h2>
                         </div>
-                        <div className="counter flex gap-2 mt-4">
-                            <span>Offer ends in : </span>
-                            <span className="bg-black size-7 rounded-lg text-white flex items-center justify-center">
+                        <div className="counter flex gap-2 mt-4 items-center">
+                            <span className="text-slate-600 dark:text-slate-350">Offer ends in : </span>
+                            <span className="bg-black dark:bg-slate-800 size-7 rounded-lg text-white flex items-center justify-center font-semibold">
                                 {String(timeLeft.hours).padStart(2, "0")}
                             </span>
-                            <span>:</span>
-                            <span className="bg-black size-7 rounded-lg text-white flex items-center justify-center">
+                            <span className="dark:text-slate-300">:</span>
+                            <span className="bg-black dark:bg-slate-800 size-7 rounded-lg text-white flex items-center justify-center font-semibold">
                                 {String(timeLeft.minutes).padStart(2, "0")}
 
                             </span>
-                            <span>:</span>
-                            <span className="bg-black size-7 rounded-lg text-white flex items-center justify-center">
+                            <span className="dark:text-slate-300">:</span>
+                            <span className="bg-black dark:bg-slate-800 size-7 rounded-lg text-white flex items-center justify-center font-semibold">
                                 {String(timeLeft.seconds).padStart(2, "0")}
 
                             </span>
                         </div>
                     </div>
                     <div>
-                        <Link to={'/categories'} className='text-primary-600 hover:text-primary-700 transition-colors duration-300 flex items-center gap-1 justify-center'>
+                        <Link to={'/categories'} className='text-primary-600 hover:text-primary-700 dark:text-primary-400 hover:dark:text-primary-300 transition-colors duration-300 flex items-center gap-1 justify-center'>
                             <span>
                                 View All Deals
                             </span>

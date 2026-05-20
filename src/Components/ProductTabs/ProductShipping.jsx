@@ -15,26 +15,26 @@ export default function ProductShipping() {
           </div>
           <ul className='space-y-3'>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>Free shipping on orders over $50</span>
 
             </li>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>Standard delivery: 3-5 business days</span>
             </li>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>Express delivery available (1-2 business days)</span>
             </li>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>Track your order in real-time</span>
             </li>
           </ul>
 
         </div>
-        <div className="bg-linear-to-br from-green-50 to-green-200 rounded-lg p-6 ">
+        <div className="bg-linear-to-br from-violet-50 to-violet-200 rounded-lg p-6 ">
           <div className="flex items-center gap-3 mb-4">
             <div className="size-12 bg-primary-600 text-white rounded-full flex items-center justify-center">
               <FaArrowRotateLeft className='text-xl' />
@@ -43,20 +43,20 @@ export default function ProductShipping() {
           </div>
           <ul className='space-y-3'>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>30-day hassle-free returns</span>
 
             </li>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>Full refund or exchange available</span>
             </li>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>Free return shipping on defective items</span>
             </li>
             <li className='flex items-center gap-2 text-sm text-gray-700'>
-              <FaCheck className='text-green-600 text-lg' />
+              <FaCheck className='text-violet-600 text-lg' />
               <span>Easy online return process</span>
             </li>
           </ul>

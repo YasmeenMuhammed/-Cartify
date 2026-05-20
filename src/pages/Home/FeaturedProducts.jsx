@@ -125,7 +125,7 @@ export default function FeaturedProducts() {
   }
 
   return (
-    <div className="py-14 bg-[#f8fafc]">
+    <div className="py-14 bg-[#f8fafc] dark:bg-slate-950 transition-colors duration-300">
 
       <div className="container mx-auto px-4">
 
@@ -138,25 +138,25 @@ export default function FeaturedProducts() {
           <div>
             <div className="mb-3 flex items-center gap-3">
 
-              <div className="h-10 w-2 rounded-full bg-linear-to-b from-emerald-400 to-emerald-700"></div>
+              <div className="h-10 w-2 rounded-full bg-linear-to-b from-violet-400 to-violet-700"></div>
 
-              <h2 className="text-4xl font-black text-gray-800">
+              <h2 className="text-4xl font-black text-gray-800 dark:text-slate-100">
                 Featured{" "}
-                <span className="bg-linear-to-b from-emerald-500 to-emerald-700 bg-clip-text text-transparent">
+                <span className="bg-linear-to-b from-violet-500 to-violet-700 bg-clip-text text-transparent">
                   Products
                 </span>
               </h2>
 
             </div>
 
-            <p className="text-gray-500">
+            <p className="text-gray-500 dark:text-slate-400">
               Discover our latest products
             </p>
           </div>
 
-          <div className="hidden md:flex items-center gap-2 rounded-2xl bg-white px-5 py-3 shadow-sm">
-            <FaFilter className="text-emerald-600" />
-            <span className="font-semibold text-gray-700">
+          <div className="hidden md:flex items-center gap-2 rounded-2xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800/80 px-5 py-3 shadow-sm dark:shadow-none">
+            <FaFilter className="text-violet-600 dark:text-violet-400" />
+            <span className="font-semibold text-gray-700 dark:text-slate-200">
               {currentProducts.length} Products
             </span>
           </div>
@@ -173,15 +173,15 @@ export default function FeaturedProducts() {
 
           <div className="lg:col-span-3">
 
-            <div className="sticky top-10 space-y-8 rounded-[32px] border border-white/60 bg-white/90 p-6 shadow-xl backdrop-blur">
+            <div className="sticky top-10 space-y-8 rounded-[32px] border border-white/60 dark:border-slate-800/60 bg-white/90 dark:bg-slate-900/80 p-6 shadow-xl dark:shadow-none backdrop-blur">
               {/* SEARCH */}
 
               <div>
 
                 <div className="mb-3 flex items-center gap-2">
-                  <FaSearch className="text-emerald-600" />
+                  <FaSearch className="text-violet-600 dark:text-violet-400" />
 
-                  <h3 className="font-bold text-gray-800">
+                  <h3 className="font-bold text-gray-800 dark:text-slate-100">
                     Search
                   </h3>
                 </div>
@@ -193,7 +193,7 @@ export default function FeaturedProducts() {
                   onChange={(e) =>
                     setSearchTerm(e.target.value)
                   }
-                  className="w-full rounded-2xl border border-gray-200 p-3 outline-none transition focus:border-emerald-500"
+                  className="w-full rounded-2xl border border-gray-200 dark:border-slate-750 bg-white dark:bg-slate-800/50 text-slate-800 dark:text-slate-100 p-3 outline-none transition focus:border-violet-500 focus:dark:border-violet-400"
                 />
 
               </div>
@@ -204,11 +204,11 @@ export default function FeaturedProducts() {
 
                 <div className="mb-4 flex items-center justify-between">
 
-                  <h3 className="font-bold text-gray-800">
+                  <h3 className="font-bold text-gray-800 dark:text-slate-100">
                     Max Price
                   </h3>
 
-                  <span className="rounded-full bg-emerald-100 px-4 py-1 text-sm font-bold text-emerald-700">
+                  <span className="rounded-full bg-violet-100 dark:bg-violet-950/50 px-4 py-1 text-sm font-bold text-violet-700 dark:text-violet-300">
                     {maxPrice} EGP
                   </span>
 
@@ -223,10 +223,10 @@ export default function FeaturedProducts() {
                   onChange={(e) =>
                     setMaxPrice(Number(e.target.value))
                   }
-                  className="w-full cursor-pointer accent-emerald-500"
+                  className="w-full cursor-pointer accent-violet-500 dark:accent-violet-400"
                 />
 
-                <div className="mt-2 flex justify-between text-sm text-gray-400">
+                <div className="mt-2 flex justify-between text-sm text-gray-400 dark:text-slate-500">
                   <span>0</span>
                   <span>50K</span>
                 </div>
@@ -237,7 +237,7 @@ export default function FeaturedProducts() {
 
               <div>
 
-                <h3 className="mb-3 font-bold text-gray-800">
+                <h3 className="mb-3 font-bold text-gray-800 dark:text-slate-100">
                   Categories
                 </h3>
 
@@ -247,9 +247,9 @@ export default function FeaturedProducts() {
                     onClick={() =>
                       setSelectedCategory("")
                     }
-                    className={`w-full rounded-2xl px-4 py-3 text-left transition ${selectedCategory === ""
-                      ? "bg-emerald-500 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    className={`w-full rounded-2xl px-4 py-3 text-left transition duration-200 ${selectedCategory === ""
+                      ? "bg-violet-500 text-white shadow-lg shadow-violet-500/20"
+                      : "bg-gray-100 dark:bg-slate-800/40 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-800"
                       }`}
                   >
                     All Categories
@@ -261,9 +261,9 @@ export default function FeaturedProducts() {
                       onClick={() =>
                         setSelectedCategory(category)
                       }
-                      className={`w-full rounded-2xl px-4 py-3 text-left transition ${selectedCategory === category
-                        ? "bg-emerald-500 text-white"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      className={`w-full rounded-2xl px-4 py-3 text-left transition duration-200 ${selectedCategory === category
+                        ? "bg-violet-500 text-white shadow-lg shadow-violet-500/20"
+                        : "bg-gray-100 dark:bg-slate-800/40 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-800"
                         }`}
                     >
                       {category}
@@ -280,9 +280,9 @@ export default function FeaturedProducts() {
 
                 <div className="mb-3 flex items-center gap-2">
 
-                  <FaSortAmountDown className="text-emerald-600" />
+                  <FaSortAmountDown className="text-violet-600 dark:text-violet-400" />
 
-                  <h3 className="font-bold text-gray-800">
+                  <h3 className="font-bold text-gray-800 dark:text-slate-100">
                     Sort By
                   </h3>
 
@@ -299,16 +299,16 @@ export default function FeaturedProducts() {
                       <Listbox.Button
                         className="
         relative w-full cursor-pointer rounded-2xl
-        border border-gray-200 bg-white
+        border border-gray-200 dark:border-slate-750 bg-white dark:bg-slate-800/50
         py-4 pl-5 pr-12 text-left
         shadow-sm transition
-        hover:border-emerald-400
-        focus:border-emerald-500
+        hover:border-violet-400
+        focus:border-violet-500
         focus:outline-none
-        focus:ring-4 focus:ring-emerald-100
+        focus:ring-4 focus:ring-violet-100/50
       "
                       >
-                        <span className="block truncate font-medium text-gray-700">
+                        <span className="block truncate font-medium text-gray-700 dark:text-slate-200">
 
                           {
                             sortOptions.find(
@@ -328,8 +328,8 @@ export default function FeaturedProducts() {
 
                       <Listbox.Options
                         className="
-         absolute bottom-full z-50 mb-3 max-h-60 w-full overflow-auto
-  rounded-2xl bg-white  shadow-2xl
+          absolute bottom-full z-50 mb-3 max-h-60 w-full overflow-auto
+  rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-2xl dark:shadow-none
   ring-1 ring-black/5 focus:outline-none
       "
                       >
@@ -344,8 +344,8 @@ export default function FeaturedProducts() {
               relative cursor-pointer select-none
               px-5 py-3 transition
               ${active
-                                ? "bg-emerald-500 text-white"
-                                : "text-gray-700"
+                                ? "bg-violet-500 text-white"
+                                : "text-gray-700 dark:text-slate-200 hover:bg-slate-700/50"
                               }
             `
                             }
@@ -413,11 +413,11 @@ export default function FeaturedProducts() {
 
             <div className="mb-6 flex items-center justify-between">
 
-              <h3 className="text-xl font-bold text-gray-800">
+              <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100">
                 Products
               </h3>
 
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-slate-400">
                 Showing {currentProducts.length} of {filteredProducts.length} results
               </p>
 
@@ -438,13 +438,13 @@ export default function FeaturedProducts() {
 
               ) : (
 
-                <div className="col-span-full rounded-3xl bg-white p-12 text-center shadow-sm">
+                <div className="col-span-full rounded-3xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800/80 p-12 text-center shadow-sm dark:shadow-none">
 
-                  <h3 className="mb-2 text-2xl font-bold text-gray-800">
+                  <h3 className="mb-2 text-2xl font-bold text-gray-800 dark:text-slate-100">
                     No Products Found
                   </h3>
 
-                  <p className="text-gray-500">
+                  <p className="text-gray-500 dark:text-slate-400">
                     Try changing filters or search keyword
                   </p>
 
@@ -463,7 +463,7 @@ export default function FeaturedProducts() {
                     onClick={() =>
                       setCurrentPage((prev) => prev - 1)
                     }
-                    className="rounded-xl border border-gray-200 bg-white px-4 py-2 transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 px-4 py-2 transition hover:bg-gray-100 dark:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     Prev
                   </button>
@@ -478,8 +478,8 @@ export default function FeaturedProducts() {
                         onClick={() => setCurrentPage(page)}
                         className={`h-11 w-11 rounded-xl font-semibold transition
               ${currentPage === page
-                            ? "bg-emerald-500 text-white"
-                            : "border border-gray-200 bg-white hover:bg-gray-100"
+                            ? "bg-violet-500 text-white shadow-md shadow-violet-500/20"
+                            : "border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-350 hover:bg-gray-100 dark:hover:bg-slate-800"
                           }`}
                       >
                         {page}
@@ -493,7 +493,7 @@ export default function FeaturedProducts() {
                     onClick={() =>
                       setCurrentPage((prev) => prev + 1)
                     }
-                    className="rounded-xl border border-gray-200 bg-white px-4 py-2 transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 px-4 py-2 transition hover:bg-gray-100 dark:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     Next
                   </button>

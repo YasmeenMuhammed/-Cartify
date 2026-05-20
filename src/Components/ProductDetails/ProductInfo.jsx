@@ -18,7 +18,7 @@ export default function ProductInfo({ productDetails }) {
 
 
     const { fetchAddProductToCart } = useContext(CartContext);
-    return <section>
+    return <section className='mt-5'>
         <nav className='BreadCrumb'>
             <div className="container mx-auto px-4">
                 <ul className='flex items-center flex-wrap gap-1 text-sm'>
@@ -44,7 +44,7 @@ export default function ProductInfo({ productDetails }) {
                         <MdOutlineKeyboardArrowRight className='text-xl mt-1' />
                     </li>
                     <li className='flex items-center text-gray-500 transition gap-1 justify-center '>
-                        <span className='mt-1'>{title}</span>
+                        <span className='mt-1  dark:text-slate-200'>{title}</span>
                     </li>
 
 
@@ -53,9 +53,9 @@ export default function ProductInfo({ productDetails }) {
             </div>
 
         </nav>
-        <div className="product-details py-6">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row gap-8">
+        <div className="product-details py-6 dark:text-slate-200">
+            <div className="container mx-auto px-4 ">
+                <div className="flex flex-col lg:flex-row gap-8 ">
                     <div className="product-images lg:w-1/4">
                         <ImageGallery
                             showNav={false}
@@ -68,8 +68,8 @@ export default function ProductInfo({ productDetails }) {
                                 }
                             })} />
                     </div>
-                    <div className="product-info lg:w-3/4">
-                        <div className="bg-white rounded-xl shadow-sm p-6">
+                    <div className="product-info lg:w-3/4 ">
+                        <div className="bg-white rounded-xl shadow-sm p-6 dark:bg-slate-900">
                             <div className="flex flex-wrap gap-2 mb-4 ">
                                 <Link to={`/categories`} className='bg-primary-50 text-primary-700 text-xs px-3 py-1.5 rounded-full hover:bg-primary-100 transition'>
                                     Woman's Fashion
@@ -79,7 +79,7 @@ export default function ProductInfo({ productDetails }) {
                                 </span>
 
                             </div>
-                            <h1 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3'>{title}</h1>
+                            <h1 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3  dark:text-slate-200'>{title}</h1>
                             <div className="flex items-center gap-3 mb-4">
                                 <Rating rating={ratingsAverage} />
                                 <span className='text-sm text-gray-600'>
@@ -89,13 +89,13 @@ export default function ProductInfo({ productDetails }) {
                                     ({reviews.length} Reviews)
                                 </span>
                             </div>
-                            <div className='flex items-center flex-wrap gap-3 mb-6'>
+                            <div className='flex items-center flex-wrap gap-3 mb-6 dark:text-slate-200'>
                                 {priceAfterDiscount ? <>
-                                    <span className='text-2xl font-bold text-gray-900 '>
+                                    <span className='text-2xl font-bold text-gray-900 dark:text-slate-200 '>
                                         {priceAfterDiscount} EGP
                                     </span>
 
-                                    <span className='text-lg text-gray-400 line-through'>
+                                    <span className='text-lg text-gray-400 line-through dark:text-slate-200'>
                                         {price}
                                     </span>
 
@@ -103,15 +103,15 @@ export default function ProductInfo({ productDetails }) {
                                         Save {calcDiscount({ price, priceAfterDiscount })}%
                                     </span>
                                 </> : <>
-                                    <span className='text-2xl font-bold text-gray-900 '>
+                                    <span className='text-2xl font-bold text-gray-900  dark:text-slate-200'>
                                         {price} EGP
                                     </span>
 
                                 </>}
 
                                 <div className="flex">
-                                    {quantity > 0 ? <span className='flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full bg-green-50 text-green-700'>
-                                        <span className='w-2 h-2 rounded-full bg-green-500'></span>
+                                    {quantity > 0 ? <span className='flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full bg-violet-50 text-violet-700'>
+                                        <span className='w-2 h-2 rounded-full bg-violet-500'></span>
                                         In Stock
                                     </span> : <span className='flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full bg-red-50 text-red-700'>
                                         <span className='w-2 h-2 rounded-full bg-red-500'></span>
@@ -126,7 +126,7 @@ export default function ProductInfo({ productDetails }) {
                                     {description}
                                 </p>
                             </div>
-                            <div className='mb-6'>
+                            <div className='mb-6 dark:text-slate-200'>
                                 <label htmlFor="quantity" className='block text-sm font-medium text-gray-700 mb-2'>Quantity</label>
                                 <div className="flex items-center gap-4 ">
                                     <div className="flex items-center border-2 border-gray-200 rounded-lg overflow-hidden ">
@@ -143,7 +143,7 @@ export default function ProductInfo({ productDetails }) {
                                 </div>
 
                             </div>
-                            <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                            <div className="bg-gray-50 rounded-lg p-4 mb-6  dark:text-slate-200">
                                 <div className="flex justify-between items-center">
                                     <span className='text-gray-600'>Total Price:</span>
                                     <span className='text-2xl font-bold text-primary-600'>{priceAfterDiscount ? priceAfterDiscount : price} EGP</span>

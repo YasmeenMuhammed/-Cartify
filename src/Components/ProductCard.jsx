@@ -14,19 +14,19 @@ export default function ProductCard({ productInfo }) {
 
     return (
         <div>
-            <div className="card relative h-100 cursor-pointer border border-gray-100 shadow-md hover:shadow-x mt-6 overflow-hidden hover:-translate-y-3 rounded-2xl transition-all duration-300 bg-white-200">
+            <div className="card relative h-100 cursor-pointer border border-gray-100 dark:border-slate-800/80 shadow-md hover:shadow-lg mt-6 overflow-hidden hover:-translate-y-3 rounded-2xl transition-all duration-300 bg-white dark:bg-slate-900/60 hover:dark:bg-slate-900">
                 <Link to={`/product/${id}`} className='block'>
-                    <img src={imageCover} alt="" className='w-full h-60 object-contain' />
+                    <img src={imageCover} alt="" className='w-full h-60 object-contain p-2' />
 
                 </Link>
                 <div className="content p-6 gap-1 flex flex-col">
-                    <span className='text-sm text-gray-500'>{category.name}</span>
+                    <span className='text-sm text-gray-500 dark:text-slate-400'>{category.name}</span>
                     <p>
-                        <Link to={`product/${id}`} className='line-clamp-1' >
+                        <Link to={`/product/${id}`} className='line-clamp-1 text-slate-800 dark:text-slate-100 hover:text-primary-500 dark:hover:text-primary-400 font-semibold' >
                             {title}
                         </Link>
                     </p>
-                    <div className="rating flex gap-1">
+                    <div className="rating flex gap-1 text-sm text-slate-500 dark:text-slate-400">
                         <Rating rating={ratingsAverage} />
                         <span>{ratingsAverage}</span>
                         <span>({ratingsQuantity})</span>
@@ -34,12 +34,12 @@ export default function ProductCard({ productInfo }) {
                     <div className="flex justify-between items-center">
                         <div className="price">
                             <span className='font-extrabold text-primary-500 text-lg me-1'>{priceAfterDiscount ? priceAfterDiscount : price} EGP</span>
-                            {priceAfterDiscount && <del className='text-gray-500 text-lg'>{price} EGP</del>}
+                            {priceAfterDiscount && <del className='text-gray-500 dark:text-slate-400 text-lg'>{price} EGP</del>}
                         </div>
                         <button
 
                             disabled={loadingProductId === id}
-                            className='bg-green-500 rounded-full size-8 text-white flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed' onClick={() => fetchAddProductToCart({ id })} >
+                            className='bg-violet-500 rounded-full size-8 text-white flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed hover:bg-violet-600 transition-colors duration-200' onClick={() => fetchAddProductToCart({ id })} >
                             {loadingProductId === id ? (
                                 <FaSpinner className='animate-spin' />
                             ) : (
@@ -49,18 +49,18 @@ export default function ProductCard({ productInfo }) {
                     </div>
 
                 </div>
-                <div className="side-icons space-y-1 absolute right-4 top-4 z-50">
+                <div className="side-icons space-y-1.5 absolute right-4 top-4 z-50">
                     <div
                         onClick={() => fetchAddProductToWishList({ id })}
-                        className="icon size-7 rounded-full border border-gray-200 shadow-md text-gray-600 flex items-center justify-center ">
-                        <FaRegHeart className='hover:text-red-500' />
+                        className="icon size-8 rounded-full border border-violet-100 dark:border-slate-700 bg-violet-50/80 dark:bg-slate-850 shadow-md text-violet-600 dark:text-violet-450 flex items-center justify-center hover:bg-red-500 hover:text-white hover:border-red-500 dark:hover:bg-red-600 dark:hover:text-white transition-all duration-200">
+                        <FaRegHeart />
                     </div>
-                    <div className="icon size-7 rounded-full border border-gray-200 shadow-md text-gray-600 flex items-center justify-center ">
-                        <FiRefreshCcw className='hover:text-primary-500 text-sm' />
+                    <div className="icon size-8 rounded-full border border-violet-100 dark:border-slate-700 bg-violet-50/80 dark:bg-slate-850 shadow-md text-violet-600 dark:text-violet-450 flex items-center justify-center hover:bg-violet-600 hover:text-white hover:border-violet-600 dark:hover:bg-violet-500 dark:hover:text-white transition-all duration-200">
+                        <FiRefreshCcw className='text-sm' />
                     </div>
-                    <div className="icon size-7 rounded-full border border-gray-200 shadow-md text-gray-600 flex items-center justify-center ">
-                        <Link to={`product/${id}`}>
-                            <MdOutlineRemoveRedEye className='hover:text-primary-500' />
+                    <div className="icon size-8 rounded-full border border-violet-100 dark:border-slate-700 bg-violet-50/80 dark:bg-slate-850 shadow-md text-violet-600 dark:text-violet-450 flex items-center justify-center hover:bg-violet-600 hover:text-white hover:border-violet-600 dark:hover:bg-violet-500 dark:hover:text-white transition-all duration-200">
+                        <Link to={`/product/${id}`} className="flex items-center justify-center w-full h-full text-violet-600 dark:text-violet-450 hover:text-white dark:hover:text-white transition-colors duration-200">
+                            <MdOutlineRemoveRedEye />
                         </Link>
                     </div>
                 </div>

@@ -48,9 +48,9 @@ export default function HomeLoading() {
                         </g>
                     </g>
                 </svg>
-                <div className="preloader__text">
-                    <p className="preloader__msg">Bringing you the goods…</p>
-                    <p className="preloader__msg preloader__msg--last">
+                <div className="preloader__text dark:text-slate-200">
+                    <p className="preloader__msg">Bringing you the products…</p>
+                    <p className="preloader__msg preloader__msg--last dark:text-slate-200">
                         This is taking long. Something’s wrong.
                     </p>
                 </div>

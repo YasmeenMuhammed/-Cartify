@@ -1,7 +1,7 @@
 .preloader {
     text-align: center;
     width: 100%;
-    --hue: 142;
+    --hue: 258;
     --bg: hsl(var(--hue), 10%, 90%);
     --fg: hsl(var(--hue), 29%, 10%);
     --primary: hsl(var(--hue), 72%, 55%);

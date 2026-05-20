@@ -67,7 +67,7 @@ export default function Orders() {
             <li className="flex items-center">
               <NavLink
                 to="/"
-                className="flex items-center gap-1 transition hover:text-green-600"
+                className="flex items-center gap-1 transition hover:text-violet-600"
               >
                 <IoMdHome className="text-lg" />
                 <span>Home</span>
@@ -84,7 +84,7 @@ export default function Orders() {
           {/* Header */}
           <div className="mb-8 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500 text-white shadow-lg shadow-green-200">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-500 text-white shadow-lg shadow-violet-200">
                 <FaBox className="text-2xl" />
               </div>
 
@@ -99,7 +99,7 @@ export default function Orders() {
               </div>
             </div>
 
-            <Link to={'/'} className="hidden items-center gap-2 font-medium text-green-600 transition hover:text-green-700 md:flex">
+            <Link to={'/'} className="hidden items-center gap-2 font-medium text-violet-600 transition hover:text-violet-700 md:flex">
               <FaShoppingBag className="text-sm" />
               Continue Shopping
             </Link>
@@ -141,7 +141,7 @@ export default function Orders() {
                 <div
                   key={order._id}
                   className={`overflow-hidden rounded-3xl border bg-white shadow-sm transition-all duration-300 ${isOpen
-                    ? "border-green-200"
+                    ? "border-violet-200"
                     : "border-gray-200 hover:shadow-md"
                     }`}
                 >
@@ -248,7 +248,7 @@ export default function Orders() {
                             setOpenOrder(isOpen ? null : order.id)
                           }
                           className={`flex items-center gap-2 rounded-2xl px-6 py-3 font-semibold transition ${isOpen
-                            ? "bg-green-600 text-white shadow-lg shadow-green-200"
+                            ? "bg-violet-600 text-white shadow-lg shadow-violet-200"
                             : "bg-gray-100 text-slate-700 hover:bg-gray-200"
                             }`}
                         >
@@ -276,7 +276,7 @@ export default function Orders() {
                         {/* Order Items */}
                         <div className="mb-6">
                           <div className="mb-4 flex items-center gap-2">
-                            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-green-100 text-green-600">
+                            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
                               <FaClipboardList className="text-sm" />
                             </div>
 

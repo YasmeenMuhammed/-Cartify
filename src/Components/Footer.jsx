@@ -7,7 +7,7 @@ import { Link } from 'react-router'
 
 export default function Footer() {
   return (
-    <footer className='bg-[#101828] py-15'>
+    <footer className='bg-[#170128] py-15'>
       <div className="container">
         <div className="footer-1 py-4">
           <div className="grid lg:grid-cols-6">
@@ -96,7 +96,7 @@ export default function Footer() {
                   <Link to={'/account'} className='text-gray-400 hover:text-primary-400 transition-colors text-sm'>My Account</Link>
                 </li>
                 <li>
-                  <Link to={'/orders'} className='text-gray-400 hover:text-primary-400 transition-colors text-sm'>Order History</Link>
+                  <Link to={'/allorders'} className='text-gray-400 hover:text-primary-400 transition-colors text-sm'>Order History</Link>
                 </li>
                 <li>
                   <Link to={'/wishlist'} className='text-gray-400 hover:text-primary-400 transition-colors text-sm'>Wishlist</Link>
@@ -130,7 +130,7 @@ export default function Footer() {
                   <Link to={'/contact'} className='text-gray-400 hover:text-primary-400 transition-colors text-sm'>Returns & Refunds</Link>
                 </li>
                 <li>
-                  <Link to={'/orders'} className='text-gray-400 hover:text-primary-400 transition-colors text-sm'>Track Order</Link>
+                  <Link to={'/allorders'} className='text-gray-400 hover:text-primary-400 transition-colors text-sm'>Track Order</Link>
                 </li>
 
 
@@ -153,7 +153,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="footer-2 text-gray-500 flex justify-between border-t border-gray-300 py-3">
+        <div className="footer-2 text-gray-500 flex justify-between border-t border-gray-300 dark:border-slate-800 py-3">
           <p>
             &copy;{new Date().getFullYear()} Cartify. All rights reserved.
           </p>

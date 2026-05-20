@@ -20,14 +20,14 @@ export default function CartItem({ productInfo }) {
 
   return (
     <div
-      className={`relative bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 transition-all duration-300 overflow-hidden ${
+      className={`relative bg-white dark:bg-slate-900 rounded-2xl shadow-sm hover:shadow-md border border-gray-100 dark:border-slate-800 transition-all duration-300 overflow-hidden ${
         updateCount ? 'pointer-events-none opacity-70' : ''
       }`}
     >
       <div className="p-4 sm:p-5">
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           <div className="relative shrink-0 group w-full sm:w-auto">
-            <div className="w-full sm:size-28 h-40 sm:h-28 rounded-xl bg-linear-to-br from-gray-50 via-white to-gray-100 p-3 border border-gray-100 overflow-hidden">
+            <div className="w-full sm:size-28 h-40 sm:h-28 rounded-xl bg-linear-to-br from-gray-50 via-white to-gray-100 dark:from-slate-800 dark:to-slate-850 p-3 border border-gray-100 dark:border-slate-800/80 overflow-hidden">
               <img
                 src={imageCover}
                 className="size-full object-contain transition-transform duration-300 group-hover:scale-110"
@@ -45,19 +45,19 @@ export default function CartItem({ productInfo }) {
             <div className="mb-3 flex flex-col md:flex-row md:items-start md:justify-between gap-3">
               <div className="group/title min-w-0">
                 <Link to={`/product/${product.id}`}>
-                  <h3 className="font-semibold text-gray-900 group-hover/title:text-primary-600 transition-colors leading-snug text-base sm:text-lg break-words">
+                  <h3 className="font-semibold text-gray-900 dark:text-slate-100 group-hover/title:text-primary-600 dark:group-hover/title:text-primary-400 transition-colors leading-snug text-base sm:text-lg break-words">
                     {title}
                   </h3>
                 </Link>
 
                 <div className="flex flex-wrap items-center gap-2 mt-2">
-                  <span className="inline-block px-2.5 py-1 bg-linear-to-r from-primary-50 to-emerald-50 text-xs font-medium rounded-full max-w-full break-words">
+                  <span className="inline-block px-2.5 py-1 bg-linear-to-r from-primary-50 to-violet-50 dark:from-slate-800 dark:to-slate-850 text-xs font-medium rounded-full max-w-full break-words text-gray-800 dark:text-slate-200">
                     {category.name}
                   </span>
 
                   <span className="hidden sm:inline text-xs text-gray-400">.</span>
 
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-gray-500 dark:text-slate-400">
                     SKU: {id?.slice(0, 6).toUpperCase()}
                   </span>
                 </div>
@@ -70,27 +70,27 @@ export default function CartItem({ productInfo }) {
 
             <div className="mb-4">
               <div className="flex flex-wrap items-baseline gap-2">
-                <div className="text-primary-600 font-bold text-lg sm:text-xl">
+                <div className="text-primary-600 dark:text-primary-400 font-bold text-lg sm:text-xl">
                   {price} EGP
                 </div>
 
-                <div className="text-xs text-gray-400">Per Unit</div>
+                <div className="text-xs text-gray-400 dark:text-slate-400">Per Unit</div>
               </div>
             </div>
 
             <div className="mt-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               <div className="flex items-center">
-                <div className="flex items-center bg-gray-50 rounded-xl p-1 border border-gray-200">
+                <div className="flex items-center bg-gray-50 dark:bg-slate-800 rounded-xl p-1 border border-gray-200 dark:border-slate-700">
                   <button
                     type="button"
                     onClick={() => updateCountHandler({ id, count: count - 1 })}
                     disabled={count <= 1}
-                    className="size-9 rounded-lg bg-white shadow-sm flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none transition-all"
+                    className="size-9 rounded-lg bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center text-gray-500 dark:text-slate-350 hover:text-gray-700 hover:bg-gray-50 dark:hover:bg-slate-600 disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none transition-all"
                   >
                     <FaMinus />
                   </button>
 
-                  <span className="w-12 text-gray-900 font-bold text-center">
+                  <span className="w-12 text-gray-900 dark:text-slate-100 font-bold text-center">
                     {count}
                   </span>
 
@@ -106,20 +106,20 @@ export default function CartItem({ productInfo }) {
 
               <div className="flex items-center justify-between lg:justify-end gap-4">
                 <div className="text-start lg:text-center">
-                  <p className="text-sm text-gray-500">Total</p>
+                  <p className="text-sm text-gray-500 dark:text-slate-400">Total</p>
 
                   <div className="flex flex-wrap gap-2 items-baseline">
-                    <p className="text-xl font-bold text-gray-900">
+                    <p className="text-xl font-bold text-gray-900 dark:text-slate-100">
                       {price * count}
                     </p>
-                    <span className="text-lg font-bold text-gray-400">EGP</span>
+                    <span className="text-lg font-bold text-gray-400 dark:text-slate-450">EGP</span>
                   </div>
                 </div>
 
                 <button
                   type="button"
                   onClick={() => fetchDeleteCartItem({ id })}
-                  className="size-10 shrink-0 rounded-xl border border-red-200 bg-red-50 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 flex items-center justify-center disabled:opacity-40 transition-all duration-200"
+                  className="size-10 shrink-0 rounded-xl border border-red-200 dark:border-red-950/20 bg-red-50 dark:bg-red-950/20 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 flex items-center justify-center disabled:opacity-40 transition-all duration-200"
                 >
                   <FaTrashAlt />
                 </button>

@@ -16,8 +16,8 @@ const features = [
         icon: FaShieldAlt,
         title: "Secure Payment",
         desc: "100% secure transactions",
-        bg: "bg-emerald-50",
-        color: "text-emerald-500",
+        bg: "bg-violet-50",
+        color: "text-violet-500",
     },
     {
         icon: FaArrowRotateLeft,
@@ -53,17 +53,17 @@ function FeatureCard({ icon: Icon, title, desc, bg, color }) {
         <motion.div
             variants={cardVariants}
             transition={{ duration: 0.5 }}
-            className="flex items-center bg-white shadow-sm hover:shadow-md transition-shadow duration-200 rounded-xl p-4 gap-4"
+            className="flex items-center bg-white dark:bg-slate-900/60 border border-transparent dark:border-slate-800/80 shadow-sm hover:shadow-md transition-all duration-200 rounded-xl p-4 gap-4"
         >
-            <div className={`rounded-full size-12 ${bg} ${color} flex items-center justify-center`}>
+            <div className={`rounded-full size-12 shrink-0 ${bg} dark:bg-slate-800/80 ${color} flex items-center justify-center text-lg`}>
                 <Icon />
             </div>
 
             <div>
-                <h3 className="font-semibold text-gray-800 text-sm">
+                <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-sm">
                     {title}
                 </h3>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-500 dark:text-slate-400">
                     {desc}
                 </p>
             </div>
