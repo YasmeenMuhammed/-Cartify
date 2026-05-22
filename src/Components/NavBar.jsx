@@ -34,9 +34,10 @@ export default function NavBar() {
   function handleSearch(e) {
     e.preventDefault();
 
-    if (!searchValue.trim()) return;
+    const trimmedValue = searchValue.trim();
+    if (!trimmedValue) return;
 
-    navigate(`/search?keyword=${searchValue}`);
+    navigate(`/search?keyword=${encodeURIComponent(trimmedValue)}`);
   }
 
   return (
@@ -236,20 +237,22 @@ export default function NavBar() {
             </Link>
 
             {/* Search Input */}
-            <div className="relative hidden flex-1 lg:block">
+            <form onSubmit={handleSearch} className="relative hidden flex-1 lg:block">
               <input
                 type="text"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search for products, brands and more..."
                 className="h-12 w-full rounded-full border border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/60 placeholder:text-slate-500 dark:placeholder:text-slate-500 ps-5 pe-14 text-sm text-gray-800 dark:text-white outline-none transition focus:border-primary-500 focus:bg-white dark:focus:bg-slate-900"
               />
 
               <button
-                type="button"
+                type="submit"
                 className="absolute right-1.5 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full bg-primary-500 text-white transition-colors duration-300 hover:bg-primary-700"
               >
                 <FaSearch />
               </button>
-            </div>
+            </form>
 
             {/* Desktop Links */}
             <ul className="hidden items-center gap-4 lg:flex">

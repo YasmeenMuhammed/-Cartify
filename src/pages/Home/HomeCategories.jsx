@@ -33,11 +33,11 @@ export default function HomeCategories() {
                         </Link>
                     </div>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 group ">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4  ">
 
                     {categories && categories.map((category) => <Fragment key={category._id}>
 
-                        <Link to={`/products?category[in]=${category._id}`} className="card flex flex-col items-center gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 shadow-md dark:shadow-none cursor-pointer hover:shadow-2xl dark:hover:shadow-none hover:bg-gray-50 dark:hover:bg-slate-900/80 transition-all hover:scale-101 duration-300">
+                        <Link to={`/products?category[in]=${category._id}`} className="card group flex flex-col items-center gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 shadow-md dark:shadow-none cursor-pointer hover:shadow-2xl dark:hover:shadow-none hover:bg-gray-50 dark:hover:bg-slate-900/80 transition-all hover:scale-101 duration-300">
                             <img src={category.image}
                                 alt=""
                                 className='size-24 rounded-full object-cover group-hover:scale-101 transition-all duration-300'

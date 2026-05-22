@@ -209,7 +209,7 @@ export default function Search() {
         icon={<FaSearch />}
       />
 
-      <div className="py-14 bg-[#f8fafc]">
+      <div className="py-14 bg-[#f8fafc] dark:bg-slate-950">
 
         <div className="container mx-auto px-4">
 
@@ -219,7 +219,7 @@ export default function Search() {
 
             <div className="lg:col-span-3">
 
-              <div className="sticky top-10 space-y-8 rounded-[32px] border border-white/60 bg-white/90 p-6 shadow-xl">
+              <div className="sticky top-10 space-y-8 rounded-4xl border border-white/60 bg-white/90 p-6 shadow-xl dark:border-slate-700/40 dark:bg-slate-900/90">
 
                 {/* PRICE */}
 
@@ -227,11 +227,11 @@ export default function Search() {
 
                   <div className="mb-4 flex items-center justify-between">
 
-                    <h3 className="font-bold text-gray-800">
+                    <h3 className="font-bold text-gray-800 dark:text-slate-100">
                       Max Price
                     </h3>
 
-                    <span className="rounded-full bg-violet-100 px-4 py-1 text-sm font-bold text-violet-700">
+                    <span className="rounded-full bg-violet-100 px-4 py-1 text-sm font-bold text-violet-700 dark:bg-violet-500/10 dark:text-violet-200">
                       {maxPrice} EGP
                     </span>
 
@@ -255,7 +255,7 @@ export default function Search() {
 
                 <div>
 
-                  <h3 className="mb-3 font-bold text-gray-800">
+                  <h3 className="mb-3 font-bold text-gray-800 dark:text-slate-100">
                     Categories
                   </h3>
 
@@ -302,7 +302,7 @@ export default function Search() {
 
                     <FaSortAmountDown className="text-violet-600" />
 
-                    <h3 className="font-bold text-gray-800">
+                    <h3 className="font-bold text-gray-800 dark:text-slate-100">
                       Sort By
                     </h3>
 
@@ -315,7 +315,7 @@ export default function Search() {
 
                     <div className="relative">
 
-                      <Listbox.Button className="relative w-full rounded-2xl border border-gray-200 bg-white py-4 pl-5 pr-12 text-left">
+                      <Listbox.Button className="relative w-full rounded-2xl border border-gray-200 bg-white py-4 pl-5 pr-12 text-left dark:border-slate-700 dark:bg-slate-900">
 
                         <span>
                           {
@@ -332,7 +332,7 @@ export default function Search() {
 
                       </Listbox.Button>
 
-                      <Listbox.Options className="absolute bottom-full z-50 mb-3 w-full rounded-2xl bg-white shadow-xl">
+                      <Listbox.Options className="absolute bottom-full z-50 mb-3 w-full rounded-2xl bg-white shadow-xl dark:bg-slate-900 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
 
                         {sortOptions.map((option) => (
 
@@ -383,11 +383,11 @@ export default function Search() {
               <div className="mb-6 flex items-center justify-between">
 
 
-                <h3 className="text-xl font-bold text-gray-800">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100">
                   Search Results
                 </h3>
 
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-slate-400">
                   Showing {currentProducts.length} of {filteredProducts.length}
                 </p>
 
@@ -396,14 +396,14 @@ export default function Search() {
 
               <div className="mb-8 flex flex-wrap items-center gap-3">
 
-                <span className="font-semibold text-gray-700">
+                <span className="font-semibold text-gray-700 dark:text-slate-200">
                   Active Filters:
                 </span>
 
                 {/* SEARCH */}
 
                 {keyword && (
-                  <div className="flex items-center gap-2 rounded-full bg-violet-100 px-4 py-2 text-sm font-medium text-violet-700">
+                  <div className="flex items-center gap-2 rounded-full bg-violet-100 px-4 py-2 text-sm font-medium text-violet-700 dark:bg-violet-500/10 dark:text-violet-200">
 
                     <span>
                       Search: {keyword}
@@ -417,7 +417,7 @@ export default function Search() {
                 {selectedCategory && (
                   <button
                     onClick={() => setSelectedCategory("")}
-                    className="flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200"
+                    className="flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
                   >
 
                     <span>
@@ -436,7 +436,7 @@ export default function Search() {
                 {maxPrice < 50000 && (
                   <button
                     onClick={() => setMaxPrice(50000)}
-                    className="flex items-center gap-2 rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-200"
+                    className="flex items-center gap-2 rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
                   >
 
                     <span>
@@ -455,7 +455,7 @@ export default function Search() {
                 {sortType && (
                   <button
                     onClick={() => setSortType("")}
-                    className="flex items-center gap-2 rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-700 transition hover:bg-purple-200"
+                    className="flex items-center gap-2 rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-700 transition hover:bg-purple-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
                   >
 
                     <span>
@@ -485,7 +485,7 @@ export default function Search() {
                         setMaxPrice(50000);
                         setSortType("");
                       }}
-                      className="text-sm text-gray-500 underline hover:text-black"
+                      className="text-sm text-gray-500 underline hover:text-black dark:text-slate-400 dark:hover:text-slate-100"
                     >
                       Clear all
                     </button>
@@ -506,13 +506,13 @@ export default function Search() {
 
                 ) : (
 
-                  <div className="col-span-full rounded-3xl bg-white p-12 text-center">
+                  <div className="col-span-full rounded-3xl bg-white p-12 text-center dark:bg-slate-900">
 
-                    <h3 className="mb-2 text-2xl font-bold text-gray-800">
+                    <h3 className="mb-2 text-2xl font-bold text-gray-800 dark:text-slate-100">
                       No Products Found
                     </h3>
 
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-slate-400">
                       Try another search keyword
                     </p>
 
@@ -533,7 +533,7 @@ export default function Search() {
                     onClick={() =>
                       setCurrentPage((prev) => prev - 1)
                     }
-                    className="rounded-xl border bg-white px-4 py-2 disabled:opacity-50"
+                    className="rounded-xl border bg-white px-4 py-2 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
                   >
                     Prev
                   </button>
@@ -549,7 +549,7 @@ export default function Search() {
                         className={`h-11 w-11 rounded-xl transition
                           ${currentPage === page
                             ? "bg-violet-500 text-white"
-                            : "border bg-white"
+                            : "border bg-white dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
                           }`}
                       >
                         {page}
@@ -562,7 +562,7 @@ export default function Search() {
                     onClick={() =>
                       setCurrentPage((prev) => prev + 1)
                     }
-                    className="rounded-xl border bg-white px-4 py-2 disabled:opacity-50"
+                    className="rounded-xl border bg-white px-4 py-2 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
                   >
                     Next
                   </button>

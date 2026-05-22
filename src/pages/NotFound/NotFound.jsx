@@ -7,6 +7,7 @@ import {
   FaShoppingCart,
   FaSeedling,
 } from "react-icons/fa";
+import { Link } from "react-router";
 
 const floatingIcons = [
   { Icon: FaAppleAlt, className: "left-[5%] top-[9%] text-3xl opacity-70" },
@@ -21,8 +22,8 @@ const destinations = ["All Products", "Categories", "Today's Deals", "Contact Us
 
 export default function NotFound() {
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#fbfdfe] px-5 py-10 text-slate-900">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_46%_31%,rgba(34,197,94,0.11),transparent_18%),radial-gradient(circle_at_91%_16%,rgba(34,197,94,0.10),transparent_22%),radial-gradient(circle_at_6%_92%,rgba(34,197,94,0.10),transparent_19%)]" />
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#fbfdfe] dark:bg-slate-950 px-5 py-10 text-slate-900 dark:text-slate-100">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_46%_31%,rgba(34,197,94,0.11),transparent_18%),radial-gradient(circle_at_91%_16%,rgba(34,197,94,0.10),transparent_22%),radial-gradient(circle_at_6%_92%,rgba(34,197,94,0.10),transparent_19%)] dark:opacity-90" />
 
       {floatingIcons.map(({ Icon, className }, index) => (
         <Icon
@@ -34,7 +35,7 @@ export default function NotFound() {
 
       <section className="relative z-10 flex w-full max-w-3xl flex-col items-center text-center">
         <div className="relative mb-10">
-          <div className="flex h-40 w-56 items-center justify-center rounded-[22px] border border-violet-50 bg-white/85 shadow-[0_24px_70px_rgba(16,185,129,0.16)] backdrop-blur">
+          <div className="flex h-40 w-56 items-center justify-center rounded-[22px] border border-violet-50 bg-white/85 shadow-[0_24px_70px_rgba(16,185,129,0.16)] backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 dark:shadow-[0_24px_70px_rgba(0,0,0,0.45)]">
             <FaShoppingCart className="text-7xl text-violet-400" aria-hidden="true" />
           </div>
 
@@ -49,27 +50,27 @@ export default function NotFound() {
           </div>
         </div>
 
-        <h1 className="mt-8 text-5xl font-black tracking-normal text-slate-950 sm:text-6xl">
+        <h1 className="mt-8 text-5xl font-black tracking-normal text-slate-950 dark:text-slate-100 sm:text-6xl">
           Oops! Nothing Here
         </h1>
 
-        <p className="mt-5 max-w-xl text-lg font-medium leading-8 text-slate-500">
+        <p className="mt-5 max-w-xl text-lg font-medium leading-8 text-slate-500 dark:text-slate-300">
           Looks like this page went out of stock! Don't worry, there's plenty more fresh content to explore.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="inline-flex h-14 items-center justify-center gap-3 rounded-xl bg-violet-600 px-8 text-base font-extrabold text-white shadow-[0_10px_20px_rgba(22,163,74,0.28)] transition hover:-translate-y-0.5 hover:bg-violet-700 focus:outline-none focus:ring-4 focus:ring-violet-200"
           >
             <FaHome className="text-lg" aria-hidden="true" />
             Go to Homepage
-          </a>
+          </Link>
 
           <button
             type="button"
             onClick={() => window.history.back()}
-            className="inline-flex h-14 items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-8 text-base font-extrabold text-slate-700 shadow-[0_4px_10px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200"
+            className="inline-flex h-14 items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-8 text-base font-extrabold text-slate-700 shadow-[0_4px_10px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:shadow-[0_4px_10px_rgba(0,0,0,0.35)] dark:hover:bg-slate-800 dark:focus:ring-slate-700"
           >
             <FaArrowLeft className="text-lg" aria-hidden="true" />
             Go Back
@@ -77,7 +78,7 @@ export default function NotFound() {
         </div>
 
         <nav
-          className="mt-14 w-full max-w-xl rounded-[22px] border border-slate-200 bg-white/90 px-8 py-7 shadow-[0_4px_12px_rgba(15,23,42,0.08)] backdrop-blur"
+          className="mt-14 w-full max-w-xl rounded-[22px] border border-slate-200 bg-white/90 px-8 py-7 shadow-[0_4px_12px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-700 dark:bg-slate-900/80 dark:shadow-[0_4px_12px_rgba(0,0,0,0.45)]"
           aria-label="Popular destinations"
         >
           <p className="text-sm font-extrabold uppercase tracking-normal text-slate-400">
@@ -86,16 +87,16 @@ export default function NotFound() {
 
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {destinations.map((item, index) => (
-              <a
+              <Link
                 key={item}
-                href={index === 0 ? "/products" : "#"}
+                to={index === 0 ? "/products" : "#"}
                 className={`flex h-10 items-center justify-center rounded-xl px-4 text-sm font-bold transition ${index === 0
-                  ? "bg-violet-50 text-violet-700 hover:bg-violet-100"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  ? "bg-violet-50 text-violet-700 hover:bg-violet-100 dark:bg-violet-500/10 dark:text-violet-200 dark:hover:bg-violet-500/20"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                   }`}
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>
