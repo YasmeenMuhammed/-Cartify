@@ -33,13 +33,13 @@ export default function Account() {
     return (
         <>
             <PageMetaData title={"Account"} />
-            <section className="bg-gray-50 py-10">
+            <section className="bg-gray-50 dark:bg-slate-950 py-10">
                 <div className="container mx-auto px-4">
-                    <h1 className="mb-8 text-3xl font-bold text-gray-900">My Account</h1>
+                    <h1 className="mb-8 text-3xl font-bold text-gray-900 dark:text-slate-100">My Account</h1>
 
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
                         {/* Sidebar */}
-                        <aside className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                        <aside className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
                             <ul className="space-y-1">
                                 {tabs.map((tab) => {
                                     const Icon = tab.icon;
@@ -50,7 +50,7 @@ export default function Account() {
                                                 onClick={() => setActiveTab(tab.id)}
                                                 className={`flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium transition ${activeTab === tab.id
                                                     ? "bg-primary-500 text-white"
-                                                    : "text-gray-600 hover:bg-primary-50 hover:text-primary-600"
+                                                    : "text-gray-600 dark:text-slate-300 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-slate-950 dark:hover:text-primary-400"
                                                     }`}
                                             >
                                                 <Icon className="text-lg" />
@@ -63,7 +63,7 @@ export default function Account() {
                                 <li className="border-t border-gray-100 pt-2">
                                     <button
                                         onClick={logOut}
-                                        className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium text-gray-600 transition hover:bg-red-50 hover:text-red-600">
+                                        className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium text-gray-600 transition hover:bg-red-50 hover:text-red-600 dark:text-slate-300 dark:hover:bg-slate-950" >
                                         <FaSignOutAlt className="text-lg" />
                                         Log Out
                                     </button>
@@ -88,54 +88,54 @@ export default function Account() {
 
 function AccountSettings() {
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-1 text-xl font-bold text-gray-900">Account Settings</h2>
-            <p className="mb-6 text-sm text-gray-500">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+            <h2 className="mb-1 text-xl font-bold text-gray-900 dark:text-slate-100">Account Settings</h2>
+            <p className="mb-6 text-sm text-gray-500 dark:text-slate-400">
                 Manage your personal information and account details.
             </p>
 
             <form className="grid grid-cols-1 gap-5 md:grid-cols-2">
                 <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
                         Full Name
                     </label>
                     <input
                         type="text"
                         placeholder="Yasmeen Muhammed"
-                        className="w-full rounded-lg border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-500"
+                        className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                     />
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
                         Email
                     </label>
                     <input
                         type="email"
                         placeholder="yasmeen@gmail.com"
-                        className="w-full rounded-lg border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-500"
+                        className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                     />
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
                         Phone
                     </label>
                     <input
                         type="tel"
                         placeholder="+20 100 123 4567"
-                        className="w-full rounded-lg border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-500"
+                        className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                     />
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
                         Password
                     </label>
                     <input
                         type="password"
                         placeholder="********"
-                        className="w-full rounded-lg border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-500"
+                        className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                     />
                 </div>
 
@@ -206,11 +206,11 @@ function MyAddress() {
     }
 
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                    <h2 className="text-xl font-bold text-gray-900">My Address</h2>
-                    <p className="text-sm text-gray-500">
+<div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+                <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                        <h2 className="text-xl font-bold text-gray-900 dark:text-slate-100">My Address</h2>
+                        <p className="text-sm text-gray-500 dark:text-slate-400">
                         Manage your saved delivery addresses.
                     </p>
                 </div>
@@ -224,28 +224,28 @@ function MyAddress() {
             </div>
 
             {isAdding && (
-                <form onSubmit={handleAddAddress} className="mb-8 rounded-xl border border-gray-100 bg-gray-50 p-5">
-                    <h3 className="mb-4 text-lg font-bold">Add New Address</h3>
+                <form onSubmit={handleAddAddress} className="mb-8 rounded-xl border border-gray-100 bg-gray-50 p-5 dark:border-slate-700 dark:bg-slate-900">
+                    <h3 className="mb-4 text-lg font-bold text-gray-900 dark:text-slate-100">Add New Address</h3>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div>
-                            <label className="mb-1 block text-sm font-medium text-gray-700">Name (e.g., Home, Work)</label>
-                            <input required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 px-3 py-2 outline-none focus:border-primary-500" />
+                            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-slate-300">Name (e.g., Home, Work)</label>
+                            <input required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-gray-900 outline-none focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
                         </div>
                         <div>
-                            <label className="mb-1 block text-sm font-medium text-gray-700">City</label>
-                            <input required value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 px-3 py-2 outline-none focus:border-primary-500" />
+                            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-slate-300">City</label>
+                            <input required value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-gray-900 outline-none focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
                         </div>
                         <div>
-                            <label className="mb-1 block text-sm font-medium text-gray-700">Phone</label>
-                            <input required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 px-3 py-2 outline-none focus:border-primary-500" />
+                            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-slate-300">Phone</label>
+                            <input required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-gray-900 outline-none focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
                         </div>
                         <div className="md:col-span-2">
-                            <label className="mb-1 block text-sm font-medium text-gray-700">Details / Street</label>
-                            <input required value={formData.details} onChange={(e) => setFormData({ ...formData, details: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 px-3 py-2 outline-none focus:border-primary-500" />
+                            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-slate-300">Details / Street</label>
+                            <input required value={formData.details} onChange={(e) => setFormData({ ...formData, details: e.target.value })} type="text" className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-gray-900 outline-none focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
                         </div>
                     </div>
                     <div className="mt-4 flex justify-end gap-3">
-                        <button type="button" onClick={() => setIsAdding(false)} className="rounded-lg px-4 py-2 font-medium text-gray-600 hover:bg-gray-200">Cancel</button>
+                        <button type="button" onClick={() => setIsAdding(false)} className="rounded-lg px-4 py-2 font-medium text-gray-600 hover:bg-gray-200 dark:text-slate-300 dark:hover:bg-slate-800">Cancel</button>
                         <button disabled={isSubmitting} type="submit" className="flex items-center gap-2 rounded-lg bg-primary-500 px-4 py-2 font-medium text-white hover:bg-primary-700 disabled:opacity-50">
                             {isSubmitting && <CgSpinner className="animate-spin text-lg" />}
                             Save Address
@@ -261,7 +261,7 @@ function MyAddress() {
                     {addressesList.map((item) => (
                         <div
                             key={item._id}
-                            className="rounded-xl border border-gray-200 p-5 transition hover:border-primary-300 hover:shadow-md"
+                            className="rounded-xl border border-gray-200 bg-white p-5 transition hover:border-primary-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-900"
                         >
                             <div className="mb-4 flex items-center justify-between">
                                 <div className="flex items-center gap-3">
@@ -275,14 +275,14 @@ function MyAddress() {
                                 </div>
 
                                 <div className="flex items-center gap-2">
-                                    <button onClick={() => handleDeleteAddress(item._id)} className="flex size-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition hover:bg-red-100 hover:text-red-600">
+                                    <button onClick={() => handleDeleteAddress(item._id)} className="flex size-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition hover:bg-red-100 hover:text-red-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-red-200">
                                         <FaTrash />
                                     </button>
                                 </div>
                             </div>
 
-                            <div className="space-y-1 text-sm text-gray-600">
-                                <p className="font-medium text-gray-800">{item.city}</p>
+                            <div className="space-y-1 text-sm text-gray-600 dark:text-slate-400">
+                                <p className="font-medium text-gray-800 dark:text-slate-100">{item.city}</p>
                                 <p>{item.phone}</p>
                                 <p>{item.details}</p>
                             </div>
@@ -298,9 +298,9 @@ function MyAddress() {
 
 function Notifications() {
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-1 text-xl font-bold text-gray-900">Notification</h2>
-            <p className="mb-6 text-sm text-gray-500">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+            <h2 className="mb-1 text-xl font-bold text-gray-900 dark:text-slate-100">Notification</h2>
+            <p className="mb-6 text-sm text-gray-500 dark:text-slate-400">
                 Choose what notifications you want to receive.
             </p>
 
@@ -308,9 +308,9 @@ function Notifications() {
                 {["Order updates", "New offers", "Product recommendations"].map((item) => (
                     <label
                         key={item}
-                        className="flex items-center justify-between rounded-lg border border-gray-100 p-4"
+                        className="flex items-center justify-between rounded-lg border border-gray-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-950"
                     >
-                        <span className="font-medium text-gray-700">{item}</span>
+                        <span className="font-medium text-gray-700 dark:text-slate-200">{item}</span>
                         <input type="checkbox" className="accent-primary-500" defaultChecked />
                     </label>
                 ))}
@@ -321,9 +321,9 @@ function Notifications() {
 
 function EmptyState({ title, text }) {
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-10 text-center shadow-sm">
-            <h2 className="text-xl font-bold text-gray-900">{title}</h2>
-            <p className="mt-2 text-gray-500">{text}</p>
+        <div className="rounded-xl border border-gray-200 bg-white p-10 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-slate-100">{title}</h2>
+            <p className="mt-2 text-gray-500 dark:text-slate-400">{text}</p>
         </div>
     );
 }

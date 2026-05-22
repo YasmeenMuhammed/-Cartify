@@ -181,9 +181,12 @@ export default function CartProvider({ children }) {
     }
   }
 
-  async function fetchWishListItems() {
+  async function fetchWishListItems(showLoading = true) {
     try {
+      if(showLoading = true){
       setIsLoading(true);
+
+      }
 
       const response = await getWishListItems();
 
@@ -197,28 +200,33 @@ export default function CartProvider({ children }) {
 
       setError(error);
     } finally {
-      setIsLoading(false);
+      if (showLoading) {
+   setIsLoading(false);
+}
     }
   }
-
-  async function fetchDeleteProductFromWishList({ id }) {
+async function fetchDeleteProductFromWishList({ id }) {
     try {
+
       const toastId = toast.loading("Deleting item...");
 
       const response = await deleteProductFromWishList({ id });
 
       if (response.success) {
+
         toast.dismiss(toastId);
 
         toast.success(response.data.message);
 
-        setWishList(response.data);
+        await fetchWishListItems();
       }
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
+    } catch (error) {
+
+      console.log(error);
+
+    }
+}
 
 
   useEffect(() => {

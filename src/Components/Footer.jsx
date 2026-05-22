@@ -157,7 +157,7 @@ export default function Footer() {
           <p>
             &copy;{new Date().getFullYear()} Cartify. All rights reserved.
           </p>
-          <div className="icons flex items-center gap-4">
+          <div className="icons md:flex md:items-center gap-4">
             <div className="icon flex items-center gap-2">
               <FaCcVisa />
               <span>Visa</span>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoIosCart, IoMdHome, IoMdRefresh } from 'react-icons/io'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { Link, NavLink } from 'react-router'
@@ -10,14 +10,53 @@ import { calcDiscount } from '../../utils/discount-deals'
 import ImageGallery from 'react-image-gallery'
 import "react-image-gallery/styles/image-gallery.css";
 import { CartContext } from '../../Context/Cart.context'
+import { CgSpinner } from 'react-icons/cg'
 
-export default function ProductInfo({ productDetails }) {
+export default function ProductInfo({ productDetails, count }) {
 
     const { price, title, description, category, brand, reviews, quantity, priceAfterDiscount, imageCover, ratingsQuantity, ratingsAverage
-        , images, id } = productDetails;
+        , images, _id } = productDetails;
+    console.log(productDetails);
+    
 
 
-    const { fetchAddProductToCart } = useContext(CartContext);
+    const productCount = count || 1;
+
+
+    const { fetchAddProductToCart, fetchUpdateCartItem, cartInfo, loadingProductId } = useContext(CartContext);
+
+    const [updateCount, setUpdateCount] = useState(null);
+
+    async function updateCountHandler({ id, count }) {
+        try {
+
+            if (count < 1) return;
+            if (productCount === 1 && !cartInfo?.data?.products?.some(
+                (item) => item.product._id === id
+            )) {
+
+                await fetchAddProductToCart({ id });
+
+                return;
+            }
+
+
+            setUpdateCount(true);
+            await fetchUpdateCartItem({
+                id,
+                count
+            });
+
+        } catch (error) {
+
+            console.log(error);
+
+        } finally {
+
+            setUpdateCount(false);
+        }
+    }
+
     return <section className='mt-5'>
         <nav className='BreadCrumb'>
             <div className="container mx-auto px-4">
@@ -31,14 +70,14 @@ export default function ProductInfo({ productDetails }) {
 
                     </li>
                     <li className='flex items-center '>
-                        <NavLink to={'/category'} className='text-gray-500 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
+                        <NavLink to={`/products?category[in]=${category._id}`} className='text-gray-500 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
                             <span className='mt-1'>{category.name}</span>
                         </NavLink>
                         <MdOutlineKeyboardArrowRight className='text-xl mt-1' />
                     </li>
 
                     <li className='flex items-center '>
-                        <NavLink to={'/categories'} className='text-gray-500 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
+                        <NavLink to={`/products?brand[in]=${brand._id}`} className='text-gray-500 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
                             <span className='mt-1'>{brand.name}</span>
                         </NavLink>
                         <MdOutlineKeyboardArrowRight className='text-xl mt-1' />
@@ -46,14 +85,12 @@ export default function ProductInfo({ productDetails }) {
                     <li className='flex items-center text-gray-500 transition gap-1 justify-center '>
                         <span className='mt-1  dark:text-slate-200'>{title}</span>
                     </li>
-
-
                 </ul>
 
             </div>
 
         </nav>
-        <div className="product-details py-6 dark:text-slate-200">
+        <div className={`product-details py-6 dark:text-slate-200 ${updateCount ? 'pointer-events-none opacity-70' : ''}`}>
             <div className="container mx-auto px-4 ">
                 <div className="flex flex-col lg:flex-row gap-8 ">
                     <div className="product-images lg:w-1/4">
@@ -71,12 +108,12 @@ export default function ProductInfo({ productDetails }) {
                     <div className="product-info lg:w-3/4 ">
                         <div className="bg-white rounded-xl shadow-sm p-6 dark:bg-slate-900">
                             <div className="flex flex-wrap gap-2 mb-4 ">
-                                <Link to={`/categories`} className='bg-primary-50 text-primary-700 text-xs px-3 py-1.5 rounded-full hover:bg-primary-100 transition'>
-                                    Woman's Fashion
+                                <Link to={`/products?category[in]=${category._id}`} className='bg-primary-50 text-primary-700 text-xs px-3 py-1.5 rounded-full hover:bg-primary-100 transition'>
+                                    {category.name}
                                 </Link>
-                                <span className='bg-gray-100 text-gray-700 text-xs px-3 py-1.5 rounded-full'>
-                                    Defacto
-                                </span>
+                                <Link to={`/products?brand[in]=${brand._id}`} className='bg-gray-100 text-gray-700 text-xs px-3 py-1.5 rounded-full'>
+                                   {brand.name}
+                                </Link>
 
                             </div>
                             <h1 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3  dark:text-slate-200'>{title}</h1>
@@ -126,23 +163,41 @@ export default function ProductInfo({ productDetails }) {
                                     {description}
                                 </p>
                             </div>
-                            <div className='mb-6 dark:text-slate-200'>
-                                <label htmlFor="quantity" className='block text-sm font-medium text-gray-700 mb-2'>Quantity</label>
-                                <div className="flex items-center gap-4 ">
-                                    <div className="flex items-center border-2 border-gray-200 rounded-lg overflow-hidden ">
-                                        <button id='decreaseQuantity' className='px-4 py-3 text-gray-600 hover:text-primary-600 transition disabled:opactiy-50'>
-                                            <FaMinus />
+                            <div className="flex items-center">
+                                <div className="flex items-center bg-gray-50 dark:bg-slate-800 rounded-xl p-1 border border-gray-200 dark:border-slate-70 mb-6">
+                                    <button
+                                        type="button"
+                                        onClick={() => updateCountHandler({
+                                            id: _id,
+                                            count: productCount - 1
+                                        })}
+                                        disabled={productCount <= 1}
+                                        className="size-9 rounded-lg bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center text-gray-500 dark:text-slate-350 hover:text-gray-700 hover:bg-gray-50 dark:hover:bg-slate-600 disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none transition-all"
+                                    >
+                                        <FaMinus />
+                                    </button>
 
-                                        </button>
-                                        <input type="number" id='quantity' min={'1'} max={`222`} className='w-16 text-center border-0  focus:outline-none text-lg font-medium' value={1} />
-                                        <button id='increaseQuantity' className='px-4 py-3 text-gray-600 hover:text-primary-600 transition disabled:opactiy-50'>
-                                            <FaPlus />
-                                        </button>
-                                    </div>
-                                    <span className='text-sm text-gray-500'> {quantity} available</span>
+                                    <span className="w-12 text-gray-900 dark:text-slate-100 font-bold text-center">
+                                        {productCount}
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        onClick={() => updateCountHandler({
+                                            id: _id,
+                                            count: productCount + 1
+                                        })}
+                                        className="size-9 rounded-lg bg-primary-600 shadow-sm shadow-primary-600/30 flex items-center justify-center text-white hover:bg-primary-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        <FaPlus />
+                                    </button>
+
                                 </div>
-
+                                <div className="mb-7 ms-4">
+                                    <span className='text-sm text-gray-500 dark:text-slate-400'>{quantity} available</span>
+                                </div>
                             </div>
+
                             <div className="bg-gray-50 rounded-lg p-4 mb-6  dark:text-slate-200">
                                 <div className="flex justify-between items-center">
                                     <span className='text-gray-600'>Total Price:</span>
@@ -152,10 +207,14 @@ export default function ProductInfo({ productDetails }) {
 
                             </div>
                             <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                                <button onClick={() => { fetchAddProductToCart({ id }) }} className='flex-1 bg-primary-600  shadow-primary-600/50 shadow-lg gap-2 hover:bg-primary-700 active:scale-[0.98] font-medium rounded-xl px-6 py-3.5 text-white transition-all flex items-center justify-center  ' id='addToCart'>
-                                    <IoIosCart className='text-2xl' />
-
-                                    Add to Cart
+                                <button onClick={() => { fetchAddProductToCart({ id }) }} className='flex-1 bg-primary-600  shadow-primary-600/50 shadow-lg gap-2 hover:bg-primary-700 active:scale-[0.98] font-medium rounded-xl px-6 py-3.5 text-white transition-all flex items-center justify-center' id='addToCart'>
+                                    {loadingProductId ? <>
+                                        <span className='text-white'>Adding</span>
+                                        <CgSpinner />
+                                    </> : <>
+                                        <IoIosCart className='text-2xl' />
+                                        <span className='text-white'>Add to Cart</span>
+                                    </>}
                                 </button>
                                 <button className='flex-1 bg-gray-900  shadow-gray-600/50 shadow-lg gap-2 hover:bg-gray-800 active:scale-[0.98] font-medium rounded-xl px-6 py-3.5 text-white transition-all flex items-center justify-center  ' id='Buy Now'>
                                     <FaBolt className='text-2xl' />

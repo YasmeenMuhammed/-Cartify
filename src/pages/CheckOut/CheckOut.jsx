@@ -116,27 +116,27 @@ export default function Checkout() {
 
 
   return (
-    <div className="min-h-screen bg-[#f5f6f8] py-10">
+    <div className="min-h-screen bg-[#f5f6f8] dark:bg-slate-950 py-10">
       <div className="container mx-auto px-4 lg:px-8">
         <form onSubmit={formik.handleSubmit} className="space-y-6">
 
           {/* Breadcrumb */}
-          <ul className='flex items-center text-sm text-gray-500 mb-4'>
+          <ul className='flex items-center text-sm text-gray-500 dark:text-slate-400 mb-4'>
             <li className='flex items-center '>
-              <NavLink to={'/'} className='text-gray-500 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
+              <NavLink to={'/'} className='text-gray-500 dark:text-slate-400 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
                 <IoMdHome className='text-xl' />
                 <span className='mt-1'>Home</span>
               </NavLink>
               <MdOutlineKeyboardArrowRight className='text-xl mt-1' />
             </li>
             <li className='flex items-center '>
-              <NavLink to={'/cart'} className='text-gray-500 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
+              <NavLink to={'/cart'} className='text-gray-500 dark:text-slate-400 hover:text-primary-600 transition flex gap-1 items-center justify-center'>
                 <span className='mt-1'>Cart</span>
               </NavLink>
               <MdOutlineKeyboardArrowRight className='text-xl mt-1' />
             </li>
             <li className='flex items-center '>
-              <NavLink to={'/checkout'} className='text-gray-800 transition flex gap-1 items-center justify-center'>
+              <NavLink to={'/checkout'} className='text-gray-800 dark:text-slate-100 transition flex gap-1 items-center justify-center'>
                 <span className='mt-1'>CheckOut</span>
               </NavLink>
             </li>
@@ -149,10 +149,10 @@ export default function Checkout() {
                 <FaClipboardList className="text-2xl" />
               </div>
               <div className="flex flex-col">
-                <h1 className="text-2xl font-bold text-slate-900">
+                <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                   Complete Your Order
                 </h1>
-                <p className=" text-gray-500">
+                <p className=" text-gray-500 dark:text-slate-400">
                   Review your items and complete your purchase
                 </p>
               </div>
@@ -160,10 +160,10 @@ export default function Checkout() {
               </div>
             </div>
 
-            <button className="flex items-center gap-2 text-sm font-medium text-violet-600 transition hover:text-violet-700">
+            <Link to="/cart" className="flex items-center gap-2 text-sm font-medium text-violet-600 transition hover:text-violet-700">
               <FaArrowLeft />
               Back to Cart
-            </button>
+            </Link>
           </div>
 
           {/* Content */}
@@ -171,7 +171,7 @@ export default function Checkout() {
             {/* Left Side */}
             <div className="space-y-3">
               {/* Shipping Address */}
-              <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+              <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm dark:bg-slate-900 dark:border-slate-800">
                 {/* Header */}
                 <div className="bg-violet-600 px-6 py-3 text-white">
                   <div className="flex items-center gap-3">
@@ -190,8 +190,8 @@ export default function Checkout() {
                 {/* Body */}
                 <div className="space-y-5 p-6">
                   {/* Alert */}
-                  <div className="flex items-start gap-4 rounded-2xl border border-blue-200 bg-blue-50 p-4">
-                    <div className="mt-1 text-blue-500">
+                  <div className="flex items-start gap-4 rounded-2xl border border-blue-200 bg-blue-50 p-4 dark:border-slate-700 dark:bg-slate-800">
+                    <div className="mt-1 text-blue-500 dark:text-blue-300">
                       <FaInfoCircle />
                     </div>
 
@@ -209,12 +209,12 @@ export default function Checkout() {
 
                   {/* City */}
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-200">
                       City <span className="text-red-500">*</span>
                     </label>
 
-                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-violet-500">
-                      <FaHome className="text-gray-400" />
+                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-violet-500 dark:border-slate-800 dark:bg-slate-900">
+                      <FaHome className="text-gray-400 dark:text-slate-400" />
 
                       <input
                         type="text"
@@ -236,12 +236,12 @@ export default function Checkout() {
 
                   {/* Address */}
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-200">
                       Street Address <span className="text-red-500">*</span>
                     </label>
 
-                    <div className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-violet-500">
-                      <FaMapMarkerAlt className="mt-1 text-gray-400" />
+                    <div className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-3 transition focus-within:border-violet-500 dark:border-slate-800 dark:bg-slate-900">
+                      <FaMapMarkerAlt className="mt-1 text-gray-400 dark:text-slate-400" />
 
                       <textarea
                         value={formik.values.shippingAddress.details}
@@ -264,12 +264,12 @@ export default function Checkout() {
 
                   {/* Phone */}
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-200">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
 
-                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-2 transition focus-within:border-violet-500">
-                      <FaPhoneAlt className="text-gray-400" />
+                    <div className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-3 py-2 transition focus-within:border-violet-500 dark:border-slate-800 dark:bg-slate-900">
+                      <FaPhoneAlt className="text-gray-400 dark:text-slate-400" />
 
                       <input
                         type="text"
@@ -296,7 +296,7 @@ export default function Checkout() {
               </div>
 
               {/* Payment Method */}
-              <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+              <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm dark:bg-slate-900 dark:border-slate-800">
                 {/* Header */}
                 <div className="bg-primary-700 px-4 py-3 text-white">
                   <div className="flex items-center gap-3">
@@ -318,8 +318,8 @@ export default function Checkout() {
                   {/* Cash On Delivery */}
                   <label
                     className={`flex cursor-pointer items-center justify-between rounded-2xl border p-3 transition ${formik.values.paymentMethod === "cash"
-                      ? "border-violet-500 bg-violet-50"
-                      : "border-gray-200 bg-white hover:border-violet-300"
+                      ? "border-violet-500 bg-violet-50 dark:bg-violet-950/20"
+                      : "border-gray-200 bg-white hover:border-violet-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-violet-500"
                       }`}
                     htmlFor="cash"
                   >
@@ -327,18 +327,18 @@ export default function Checkout() {
                       <div
                         className={`flex size-10 items-center justify-center rounded-xl ${formik.values.paymentMethod === "cash"
                           ? "bg-violet-500 text-white"
-                          : "bg-gray-100 text-gray-500"
+                          : "bg-gray-100 text-gray-500 dark:bg-slate-800 dark:text-slate-300"
                           }`}
                       >
                         <FaMoneyBillWave className="text-lg" />
                       </div>
 
                       <div>
-                        <h3 className="font-semibold text-slate-900">
+                        <h3 className="font-semibold text-slate-900 dark:text-slate-100">
                           Cash on Delivery
                         </h3>
 
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-slate-400">
                           Pay when your order arrives at your doorstep
                         </p>
                       </div>
@@ -369,15 +369,15 @@ export default function Checkout() {
                   {/* Pay Online */}
                   <label
                     className={`flex cursor-pointer items-center justify-between rounded-2xl border p-4 transition ${formik.values.paymentMethod === "online"
-                      ? "border-violet-500 bg-[#f4fbf8]"
-                      : "border-gray-200 bg-white hover:border-violet-300"
+                      ? "border-violet-500 bg-[#f4fbf8] dark:bg-slate-900"
+                      : "border-gray-200 bg-white hover:border-violet-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-violet-500"
                       }`}
                   >
                     <div className="flex items-center gap-4">
                       <div
                         className={`flex size-10 items-center justify-center rounded-2xl shadow-md ${formik.values.paymentMethod === "online"
                           ? "bg-linear-to-br from-cyan-500 to-blue-600 text-white"
-                          : "bg-gray-100 text-gray-700"
+                          : "bg-gray-100 text-gray-700 dark:bg-slate-800 dark:text-slate-300"
                           }`}
                       >
                         <FaCreditCard className="text-xl" />
@@ -387,13 +387,13 @@ export default function Checkout() {
                         <h3
                           className={`font-semibold ${formik.values.paymentMethod === "online"
                             ? "text-violet-700"
-                            : "text-slate-900"
+                            : "text-slate-900 dark:text-slate-100"
                             }`}
                         >
                           Pay Online
                         </h3>
 
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-slate-400">
                           Secure payment with Credit/Debit Card via Stripe
                         </p>
 
@@ -435,8 +435,8 @@ export default function Checkout() {
                     </div>
                   </label>
                   {/* Security Box */}
-                  <div className="flex items-center gap-4 rounded-2xl bg-violet-50 p-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-100 text-violet-600">
+                  <div className="flex items-center gap-4 rounded-2xl bg-violet-50 p-4 dark:bg-slate-800">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-100 text-violet-600 dark:bg-violet-900/30 dark:text-violet-300">
                       <FaShieldAlt />
                     </div>
 
@@ -457,7 +457,7 @@ export default function Checkout() {
 
 
             {/* Right Side */}
-            <div className="h-fit overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+            <div className="h-fit overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm dark:bg-slate-900 dark:border-slate-800">
               {/* Header */}
               <div className="bg-violet-600 px-4 py-3 text-white">
                 <div className="flex items-center gap-3">
@@ -475,7 +475,7 @@ export default function Checkout() {
               {/* Items */}
               <div className="max-h-80 space-y-4 overflow-y-auto p-5">
                 {products.map((product) => (
-                  <Link to={`/product/${product.product._id}`} key={product.id} className="flex items-center gap-4 rounded-2xl bg-gray-50 p-3">
+                  <Link to={`/product/${product.product._id}`} key={product.id} className="flex items-center gap-4 rounded-2xl bg-gray-50 p-3 dark:bg-slate-900">
                     <img
                       src={product.product.imageCover}
                       alt={product.product.title}
@@ -483,16 +483,16 @@ export default function Checkout() {
                     />
 
                     <div className="flex-1">
-                      <h3 className="line-clamp-2 text-sm font-semibold text-slate-800">
+                      <h3 className="line-clamp-2 text-sm font-semibold text-slate-800 dark:text-slate-100">
                         {product.product.title}
                       </h3>
 
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-xs text-gray-500 dark:text-slate-400">
                         {product.count} × {product.price.toLocaleString()} EGP
                       </p>
                     </div>
 
-                    <span className="text-sm font-bold text-slate-900">
+                    <span className="text-sm font-bold text-slate-900 dark:text-slate-100">
                       {(product.count * product.price).toLocaleString()}
                     </span>
                   </Link>
@@ -500,21 +500,21 @@ export default function Checkout() {
               </div>
 
               {/* Summary */}
-              <div className="space-y-4 border-t border-gray-100 px-6 py-5">
-                <div className="flex items-center justify-between text-gray-600">
+              <div className="space-y-4 border-t border-gray-100 px-6 py-5 dark:border-slate-800">
+                <div className="flex items-center justify-between text-gray-600 dark:text-slate-400">
                   <span>Subtotal</span>
 
                   <span>{subtotal.toLocaleString()} EGP</span>
                 </div>
 
-                <div className="flex items-center justify-between text-gray-600">
+                <div className="flex items-center justify-between text-gray-600 dark:text-slate-400">
                   <span>Shipping</span>
 
                   <span className="font-semibold text-violet-600">FREE</span>
                 </div>
 
-                <div className="flex items-end justify-between border-t border-gray-200 pt-4">
-                  <span className="text-lg font-bold text-slate-900">
+                <div className="flex items-end justify-between border-t border-gray-200 pt-4 dark:border-slate-800">
+                  <span className="text-lg font-bold text-slate-900 dark:text-slate-100">
                     Total
                   </span>
 
@@ -523,7 +523,7 @@ export default function Checkout() {
                       {subtotal.toLocaleString()}
                     </span>
 
-                    <span className="pb-1 text-sm text-gray-500">EGP</span>
+                    <span className="pb-1 text-sm text-gray-500 dark:text-slate-400">EGP</span>
                   </div>
                 </div>
 
@@ -537,8 +537,8 @@ export default function Checkout() {
                 </button>
 
                 {/* Features */}
-                <div className="flex items-center justify-center gap-5 pt-2 text-xs text-gray-500">
-                  <div className="flex items-center gap-1">
+                <div className="flex items-center justify-center gap-5 pt-2 text-xs text-gray-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-gray-500 dark:text-slate-400">
                     <FaLock className="text-violet-500" />
                     Secure
                   </div>

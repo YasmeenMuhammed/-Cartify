@@ -5,7 +5,7 @@ import { FaTruckFast } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router'
 import * as yup from "yup"
-import freshCartImg from "../../assets/Images/FreshCartImg.png";
+import CartifyImg from "../../assets/Images/Cartify.png";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { API_CONFIG } from '../../config';
@@ -91,10 +91,10 @@ export default function Login() {
 
           {/* Review */}
           <div className='mx-auto space-y-6'>
-            <img className='object-cover h-96 rounded-2xl w-full shadow-xl border border-gray-100 dark:border-slate-800' src={freshCartImg} alt="freshCart" />
+            <img className='object-cover h-96 rounded-2xl w-full shadow-xl border border-gray-100 dark:border-slate-800' src={CartifyImg} alt="CartifyImg" />
           </div>
           <div className="title text-center space-y-3">
-            <h2 className='font-extrabold text-3xl text-slate-800 dark:text-slate-100 tracking-tight leading-snug'>Cartify - Your One-Stop Shop for Fresh Products</h2>
+            <h2 className='font-extrabold text-3xl text-slate-800 dark:text-slate-100 tracking-tight leading-snug'>Cartify - Your One-Stop Shop for All Products</h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg">Join thousands of happy customers who trust Cartify for their daily needs</p>
           </div>
 
@@ -102,7 +102,7 @@ export default function Login() {
         {/* Form */}
         <div className="form bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800/80 rounded-2xl shadow-xl dark:shadow-none p-6 sm:p-8 space-y-6">
 
-          <div className='space-y-3 mt-1 *:bg-white dark:*:bg-slate-800/40 *:border *:border-gray-300 dark:*:border-slate-700 *:hover:bg-gray-100 dark:*:hover:bg-slate-850 *:text-slate-700 dark:*:text-slate-200 *:transition-all *:duration-200 *:rounded-xl'>
+          <div className='space-y-3 mt-1 *:bg-white dark:*:bg-slate-800/40 *:border *:border-gray-300 dark:*:border-slate-700 *:hover:bg-gray-100 dark:*:hover:bg-slate-850 dark:*:hover:text-slate-700 dark:*:text-slate-200 *:transition-all *:duration-200 *:rounded-xl'>
             <button className='btn flex items-center gap-2 w-full justify-center py-2.5'>
               <FaGoogle className='text-red-500' />
               <span>Continue with Google</span>

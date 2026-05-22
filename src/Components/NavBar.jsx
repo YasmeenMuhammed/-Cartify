@@ -295,17 +295,19 @@ export default function NavBar() {
 
                     <li className="flex items-center px-4 py-2 text-gray-600 dark:text-slate-300 hover:bg-primary-100 dark:hover:bg-slate-850 hover:text-primary-600 dark:hover:text-primary-400">
                       <FaMobileRetro />
-                      <Link className="ms-3" to="/categories">Electronics</Link>
+                      <Link to={'/products?category[in]=6439d2d167d9aa4ca970649f'} className="ms-3">
+                        Electronics
+                      </Link>
                     </li>
 
                     <li className="flex items-center px-4 py-2 text-gray-600 dark:text-slate-300 hover:bg-primary-100 dark:hover:bg-slate-850 hover:text-primary-600 dark:hover:text-primary-400">
                       <GrRestroomWomen className="text-xl" />
-                      <Link className="ms-3" to="/categories">Women's Fashion</Link>
+                      <Link className="ms-3" to={'/products?category[in]=6439d58a0049ad0b52b9003f'}>Women's Fashion</Link>
                     </li>
 
                     <li className="flex items-center px-4 py-2 text-gray-600 dark:text-slate-300 hover:bg-primary-100 dark:hover:bg-slate-850 hover:text-primary-600 dark:hover:text-primary-400">
                       <IoIosMan className="text-xl" />
-                      <Link className="ms-3" to="/categories">Men's Fashion</Link>
+                      <Link className="ms-3" to={'/products?category[in]=6439d5b90049ad0b52b90048'}>Men's Fashion</Link>
                     </li>
 
                     <li className="flex items-center px-4 py-2 text-gray-600 dark:text-slate-300 hover:bg-primary-100 dark:hover:bg-slate-850 hover:text-primary-600 dark:hover:text-primary-400">
@@ -476,7 +478,7 @@ export default function NavBar() {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder="Search products..."
-            className="h-12 w-full rounded-full border border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-850 ps-4 pe-14 text-sm text-gray-800 dark:text-white outline-none focus:border-primary-500 dark:focus:bg-slate-900"
+            className="h-12 w-full rounded-full border border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-850 ps-4 pe-14 text-sm text-gray-800 dark:text-white outline-none focus:border-primary-500 dark:focus:bg-slate-900 dark:bg-slate-900/60"
           />
 
           <button

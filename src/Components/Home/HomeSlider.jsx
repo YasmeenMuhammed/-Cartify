@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 import { motion } from 'framer-motion'
 
-import homeSliderImg from '../../assets/Images/home-slider-1.png'
+import homeSliderImg from '../../assets/Images/CartifyHeader.png'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -99,8 +99,9 @@ export default function HomeSlider() {
               className="min-h-90 md:min-h-100"
               style={{
                 backgroundImage: `url('${slide.image}')`,
-                backgroundSize: 'cover',
+                backgroundSize: 'contain',
                 backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
               }}
             >
 

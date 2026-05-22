@@ -60,10 +60,10 @@ export default function Orders() {
   return (
     <>
       <PageMetaData title={"Orders"} />
-      <div className="min-h-screen bg-[#f5f6f8] py-10">
+      <div className="min-h-screen bg-[#f5f6f8] dark:bg-slate-950 py-10">
         <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
           {/* Breadcrumb */}
-          <ul className="mb-5 flex items-center text-sm text-gray-500">
+          <ul className="mb-5 flex items-center text-sm text-gray-500 dark:text-slate-400">
             <li className="flex items-center">
               <NavLink
                 to="/"
@@ -77,7 +77,7 @@ export default function Orders() {
             </li>
 
             <li>
-              <span className="font-medium text-slate-800">My Orders</span>
+              <span className="font-medium text-slate-800 dark:text-slate-100">My Orders</span>
             </li>
           </ul>
 
@@ -89,11 +89,11 @@ export default function Orders() {
               </div>
 
               <div>
-                <h1 className="text-4xl font-black text-slate-900">
+                <h1 className="text-4xl font-black text-slate-900 dark:text-slate-100">
                   My Orders
                 </h1>
 
-                <p className="mt-1 text-gray-500">
+                <p className="mt-1 text-gray-500 dark:text-slate-400">
                   Track and manage your orders
                 </p>
               </div>
@@ -114,14 +114,14 @@ export default function Orders() {
 
           {/* Empty Orders */}
           {!orders.length && !isLoading && (
-            <div className="rounded-3xl bg-white p-10 text-center shadow-sm">
-              <FaBox className="mx-auto mb-4 text-5xl text-gray-300" />
+            <div className="rounded-3xl bg-white shadow-sm p-10 text-center dark:bg-slate-900">
+              <FaBox className="mx-auto mb-4 text-5xl text-gray-300 dark:text-slate-500" />
 
-              <h2 className="text-2xl font-bold text-slate-800">
+              <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                 No Orders Yet
               </h2>
 
-              <p className="mt-2 text-gray-500">
+              <p className="mt-2 text-gray-500 dark:text-slate-400">
                 You haven't placed any orders yet.
               </p>
             </div>
@@ -140,8 +140,8 @@ export default function Orders() {
               return (
                 <div
                   key={order._id}
-                  className={`overflow-hidden rounded-3xl border bg-white shadow-sm transition-all duration-300 ${isOpen
-                    ? "border-violet-200"
+                  className={`overflow-hidden rounded-3xl border bg-white shadow-sm transition-all duration-300 dark:bg-slate-900 dark:border-slate-800 ${isOpen
+                    ? "border-violet-200 dark:border-violet-500/40"
                     : "border-gray-200 hover:shadow-md"
                     }`}
                 >
@@ -152,7 +152,7 @@ export default function Orders() {
                       <div className="flex items-start gap-5">
                         {/* Product Image */}
                         <div className="relative">
-                          <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-3xl border border-gray-100 bg-gray-50">
+                          <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-3xl border border-gray-100 bg-gray-50 dark:bg-slate-800">
                             <img
                               src={
                                 order.cartItems[0]?.product?.imageCover
@@ -184,12 +184,12 @@ export default function Orders() {
                           </div>
 
                           {/* Order Number */}
-                          <h2 className="text-2xl font-black text-slate-900">
+                          <h2 className="text-2xl font-black text-slate-900 dark:text-slate-100">
                             #{order.id}
                           </h2>
 
                           {/* Meta */}
-                          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-gray-500">
+                          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-slate-400">
                             <div className="flex items-center gap-1">
                               <FaCalendarAlt className="text-xs" />
 
@@ -215,11 +215,11 @@ export default function Orders() {
 
                           {/* Price */}
                           <div className="mt-5 flex items-end gap-1">
-                            <span className="text-xl font-black text-slate-900">
-                              {order.totalOrderPrice.toLocaleString()}
-                            </span>
+                              <span className="text-xl font-black text-slate-900 dark:text-slate-100">
+                                {order.totalOrderPrice.toLocaleString()}
+                              </span>
 
-                            <span className="pb-1 text-sm font-semibold text-gray-400">
+                              <span className="pb-1 text-sm font-semibold text-gray-400 dark:text-slate-400">
                               EGP
                             </span>
                           </div>
@@ -232,7 +232,7 @@ export default function Orders() {
                         <div
                           className={`flex h-14 w-14 items-center justify-center rounded-2xl ${order.paymentMethodType === "card"
                             ? "bg-purple-100 text-purple-600"
-                            : "bg-gray-100 text-gray-600"
+                            : "bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-300"
                             }`}
                         >
                           {order.paymentMethodType === "card" ? (
@@ -249,7 +249,7 @@ export default function Orders() {
                           }
                           className={`flex items-center gap-2 rounded-2xl px-6 py-3 font-semibold transition ${isOpen
                             ? "bg-violet-600 text-white shadow-lg shadow-violet-200"
-                            : "bg-gray-100 text-slate-700 hover:bg-gray-200"
+                            : "bg-gray-100 text-slate-700 hover:bg-gray-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
                             }`}
                         >
                           {isOpen ? "Hide" : "Details"}
@@ -272,15 +272,15 @@ export default function Orders() {
                       }`}
                   >
                     <div className="overflow-hidden">
-                      <div className="border-t border-gray-100 bg-[#fcfcfc] p-5">
+                  <div className="border-t border-gray-100 bg-[#fcfcfc] p-5 dark:border-slate-800 dark:bg-slate-950">
                         {/* Order Items */}
-                        <div className="mb-6">
-                          <div className="mb-4 flex items-center gap-2">
-                            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
+                          <div className="mb-6">
+                            <div className="mb-4 flex items-center gap-2">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-violet-100 text-violet-600 dark:bg-violet-500/15 dark:text-violet-200">
                               <FaClipboardList className="text-sm" />
                             </div>
 
-                            <h3 className="font-bold text-slate-900">
+                            <h3 className="font-bold text-slate-900 dark:text-slate-100">
                               Order Items
                             </h3>
                           </div>
@@ -289,10 +289,10 @@ export default function Orders() {
                             {order.cartItems.map((product) => (
                               <div
                                 key={product._id}
-                                className="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4"
+                                className="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 dark:bg-slate-900 dark:border-slate-800"
                               >
                                 <div className="flex items-center gap-4">
-                                  <div className="h-16 w-16 overflow-hidden rounded-xl bg-gray-100">
+                                  <div className="h-16 w-16 overflow-hidden rounded-xl bg-gray-100 dark:bg-slate-800">
                                     <img
                                       src={
                                         product.product.imageCover
@@ -303,11 +303,11 @@ export default function Orders() {
                                   </div>
 
                                   <div>
-                                    <h4 className="font-semibold text-slate-800">
+                                    <h4 className="font-semibold text-slate-800 dark:text-slate-100">
                                       {product.product.title}
                                     </h4>
 
-                                    <p className="mt-1 text-sm text-gray-500">
+                                    <p className="mt-1 text-sm text-gray-500 dark:text-slate-400">
                                       {product.count} ×{" "}
                                       {product.price.toLocaleString()} EGP
                                     </p>
@@ -315,7 +315,7 @@ export default function Orders() {
                                 </div>
 
                                 <div className="text-right">
-                                  <h4 className="text-xl font-black text-slate-900">
+                                  <h4 className="text-xl font-black text-slate-900 dark:text-slate-100">
                                     {(
                                       product.price * product.count
                                     ).toLocaleString()}
@@ -333,28 +333,28 @@ export default function Orders() {
                         {/* Bottom Cards */}
                         <div className="grid gap-4 lg:grid-cols-2">
                           {/* Address */}
-                          <div className="rounded-3xl border border-gray-100 bg-white p-5">
+                          <div className="rounded-3xl border border-gray-100 bg-white p-5 dark:bg-slate-900 dark:border-slate-800">
                             <div className="mb-4 flex items-center gap-2">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-slate-800 dark:text-blue-300">
                                 <FaMapMarkerAlt className="text-sm" />
                               </div>
 
-                              <h3 className="font-bold text-slate-900">
+                              <h3 className="font-bold text-slate-900 dark:text-slate-100">
                                 Delivery Address
                               </h3>
                             </div>
 
-                            <div className="space-y-3 text-gray-600">
-                              <p className="font-semibold text-slate-800">
+                            <div className="space-y-3 text-gray-600 dark:text-slate-400">
+                              <p className="font-semibold text-slate-800 dark:text-slate-100">
                                 {order.shippingAddress.city}
                               </p>
 
-                              <p>
+                              <p className="dark:text-slate-300">
                                 {order.shippingAddress.details}
                               </p>
 
                               <div className="flex items-center gap-2">
-                                <FaPhoneAlt className="text-sm text-gray-400" />
+                                <FaPhoneAlt className="text-sm text-gray-400 dark:text-slate-500" />
 
                                 {order.shippingAddress.phone}
                               </div>
@@ -362,13 +362,13 @@ export default function Orders() {
                           </div>
 
                           {/* Summary */}
-                          <div className="rounded-3xl border border-yellow-200 bg-yellow-50 p-5">
+                          <div className="rounded-3xl border border-yellow-200 bg-yellow-50 p-5 dark:bg-yellow-950/20 dark:border-yellow-800">
                             <div className="mb-4 flex items-center gap-2">
-                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-300">
                                 <FaMoneyBillWave className="text-sm" />
                               </div>
 
-                              <h3 className="font-bold text-slate-900">
+                              <h3 className="font-bold text-slate-900 dark:text-slate-100">
                                 Order Summary
                               </h3>
                             </div>
@@ -390,11 +390,11 @@ export default function Orders() {
 
                               <div className="border-t border-yellow-200 pt-3">
                                 <div className="flex items-center justify-between">
-                                  <span className="text-lg font-bold text-slate-900">
+                                  <span className="text-lg font-bold text-slate-900 dark:text-slate-100">
                                     Total
                                   </span>
 
-                                  <span className="text-3xl font-black text-slate-900">
+                                  <span className="text-3xl font-black text-slate-900 dark:text-slate-100">
                                     {order.totalOrderPrice.toLocaleString()} EGP
                                   </span>
                                 </div>

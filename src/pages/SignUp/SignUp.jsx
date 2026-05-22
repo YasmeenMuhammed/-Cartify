@@ -135,10 +135,10 @@ export default function SignUp() {
         {/* Form */}
         <div className="form bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800/80 rounded-2xl shadow-xl dark:shadow-none p-6 sm:p-8 space-y-5">
           <div className="title space-y-1">
-            <h2 className='text-3xl text-center font-extrabold text-slate-800 dark:text-slate-100 tracking-tight'>Create Your Account</h2>
+            <h2 className='text-3xl text-center font-extrabold text-slate-800 dark:text-slate-100  tracking-tight'>Create Your Account</h2>
             <p className='text-center text-slate-605 dark:text-slate-400 text-sm'>Start your fresh journey with us today</p>
           </div>
-          <div className='flex gap-3 mt-1 *:bg-white dark:*:bg-slate-800/40 *:border *:border-gray-300 dark:*:border-slate-700 *:hover:bg-gray-100 dark:*:hover:bg-slate-850 *:text-slate-700 dark:*:text-slate-200 *:transition-all *:duration-200 *:rounded-xl'>
+          <div className='flex gap-3 mt-1 dark:*:hover:text-slate-700 *:bg-white dark:*:bg-slate-800/40 *:border *:border-gray-300 dark:*:border-slate-700 *:hover:bg-gray-100 dark:*:hover:bg-slate-850 *:text-slate-700 dark:*:text-slate-200 *:transition-all *:duration-200 *:rounded-xl'>
             <button className='btn flex items-center gap-2 w-full justify-center py-2.5'>
               <FaGoogle className='text-red-500' />
               <span>Google</span>
@@ -156,7 +156,7 @@ export default function SignUp() {
               <label htmlFor="name" className="text-sm font-semibold text-slate-700 dark:text-slate-350">Full Name:</label>
               <input type="text"
                 id='name'
-                className='form-control rounded-xl w-full bg-white dark:bg-slate-850 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-violet-500/20'
+                className='form-control rounded-xl w-full dark:bg-slate-850  dark:border-slate-800 bg-gray-50 dark:bg-slate-900/60 placeholder:text-slate-500 dark:placeholder:text-slate-500 ps-5 pe-14 text-sm text-gray-800 dark:text-white outline-none transition focus:border-primary-500 focus:bg-white dark:focus:bg-slate-900   focus:ring-2 focus:ring-violet-500/20'
                 placeholder='Enter Your Name..'
                 name='name'
                 value={formik.values.name}
@@ -169,7 +169,7 @@ export default function SignUp() {
               <label htmlFor="email" className="text-sm font-semibold text-slate-700 dark:text-slate-350">Email Address:</label>
               <input type="email"
                 id='email'
-                className='form-control rounded-xl w-full bg-white dark:bg-slate-850 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-violet-500/20'
+                className='form-control rounded-xl w-full dark:bg-slate-850  dark:border-slate-800 bg-gray-50 dark:bg-slate-900/60 placeholder:text-slate-500 dark:placeholder:text-slate-500 ps-5 pe-14 text-sm text-gray-800 dark:text-white outline-none transition focus:border-primary-500 focus:bg-white dark:focus:bg-slate-900   focus:ring-2 focus:ring-violet-500/20'
                 placeholder='Enter Your Email..'
                 name='email'
                 value={formik.values.email}
@@ -183,7 +183,7 @@ export default function SignUp() {
               <label htmlFor="password" className="text-sm font-semibold text-slate-700 dark:text-slate-350">Password:</label>
               <input type="password"
                 id='password'
-                className='form-control rounded-xl w-full bg-white dark:bg-slate-850 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-violet-500/20'
+                className='form-control rounded-xl w-full dark:bg-slate-850  dark:border-slate-800 bg-gray-50 dark:bg-slate-900/60 placeholder:text-slate-500 dark:placeholder:text-slate-500 ps-5 pe-14 text-sm text-gray-800 dark:text-white outline-none transition focus:border-primary-500 focus:bg-white dark:focus:bg-slate-900   focus:ring-2 focus:ring-violet-500/20'
                 placeholder='Create a strong password..'
                 name='password'
                 value={formik.values.password}
@@ -205,7 +205,7 @@ export default function SignUp() {
               <label htmlFor="repassword" className="text-sm font-semibold text-slate-700 dark:text-slate-350">Confirm Password:</label>
               <input type="password"
                 id='repassword'
-                className='form-control rounded-xl w-full bg-white dark:bg-slate-850 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-violet-500/20'
+                className='form-control rounded-xl w-full dark:bg-slate-850  dark:border-slate-800 bg-gray-50 dark:bg-slate-900/60 placeholder:text-slate-500 dark:placeholder:text-slate-500 ps-5 pe-14 text-sm text-gray-800 dark:text-white outline-none transition focus:border-primary-500 focus:bg-white dark:focus:bg-slate-900   focus:ring-2 focus:ring-violet-500/20'
                 placeholder='Confirm your password'
                 name='rePassword'
                 value={formik.values.rePassword}
@@ -219,7 +219,7 @@ export default function SignUp() {
               <label htmlFor="phone" className="text-sm font-semibold text-slate-700 dark:text-slate-350">Phone Number:</label>
               <input type="number"
                 id='phone'
-                className='form-control rounded-xl w-full bg-white dark:bg-slate-850 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-violet-500/20'
+                className='form-control rounded-xl w-full dark:bg-slate-850  dark:border-slate-800 bg-gray-50 dark:bg-slate-900/60 placeholder:text-slate-500 dark:placeholder:text-slate-500 ps-5 pe-14 text-sm text-gray-800 dark:text-white outline-none transition focus:border-primary-500 focus:bg-white dark:focus:bg-slate-900   focus:ring-2 focus:ring-violet-500/20'
                 placeholder='Enter Your Phone Number..'
                 name='phone'
                 value={formik.values.phone}

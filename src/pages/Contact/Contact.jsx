@@ -17,23 +17,23 @@ import { Link } from "react-router";
 
 export default function Contact() {
     return (
-        <section className="bg-gray-50 py-8">
+        <section className="bg-gray-50 dark:bg-slate-950 py-8">
             <div className="container mx-auto px-4">
                 {/* Breadcrumb */}
-                <div className="mb-6 text-sm text-gray-500">
+                <div className="mb-6 text-sm text-gray-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-primary-500">
                         Home
                     </Link>
                     <span className="mx-2">/</span>
-                    <span className="text-gray-700">Contact Us</span>
+                    <span className="text-gray-700 dark:text-slate-200">Contact Us</span>
                 </div>
 
                 {/* Header */}
                 <div className="mb-10 text-center">
-                    <h1 className="text-3xl font-bold text-gray-900 md:text-4xl">
+                    <h1 className="text-3xl font-bold text-gray-900 dark:text-slate-100 md:text-4xl">
                         Contact Us
                     </h1>
-                    <p className="mt-3 text-gray-500">
+                    <p className="mt-3 text-gray-500 dark:text-slate-400">
                         We'd love to hear from you. Get in touch with our team.
                     </p>
                 </div>
@@ -62,23 +62,23 @@ export default function Contact() {
                             text="New York, NY 10001, United States"
                         />
 
-                        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
                             <div className="mb-4 flex items-center gap-3">
                                 <div className="flex size-11 items-center justify-center rounded-full bg-primary-100 text-primary-600">
                                     <FaClock />
                                 </div>
-                                <h3 className="font-bold text-gray-900">Business Hours</h3>
+                                <h3 className="font-bold text-gray-900 dark:text-slate-100">Business Hours</h3>
                             </div>
 
-                            <div className="space-y-2 text-sm text-gray-600">
+                            <div className="space-y-2 text-sm text-gray-600 dark:text-slate-400">
                                 <p>Monday - Friday: 8am - 6pm</p>
                                 <p>Saturday: 9am - 4pm</p>
                                 <p>Sunday: Closed</p>
                             </div>
                         </div>
 
-                        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                            <h3 className="mb-4 font-bold text-gray-900">Follow Us</h3>
+                        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+                            <h3 className="mb-4 font-bold text-gray-900 dark:text-slate-100">Follow Us</h3>
 
                             <div className="flex gap-3">
                                 {[FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn].map(
@@ -98,35 +98,35 @@ export default function Contact() {
 
                     {/* Form */}
                     <div className="lg:col-span-2">
-                        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
-                            <h2 className="text-2xl font-bold text-gray-900">
+                        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm md:p-8 dark:border-slate-700 dark:bg-slate-900">
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">
                                 Send us a Message
                             </h2>
-                            <p className="mt-2 text-gray-500">
+                            <p className="mt-2 text-gray-500 dark:text-slate-400">
                                 Fill out the form and we'll get back to you
                             </p>
 
                             <form className="mt-6 space-y-5">
                                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                                     <div>
-                                        <label className="mb-2 block text-sm font-medium text-gray-700">
+                                        <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
                                             Full Name
                                         </label>
                                         <input
                                             type="text"
                                             placeholder="Enter your name"
-                                            className="w-full rounded-lg border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-500"
+                                            className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="mb-2 block text-sm font-medium text-gray-700">
+                                        <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
                                             Email Address
                                         </label>
                                         <input
                                             type="email"
                                             placeholder="Enter your email"
-                                            className="w-full rounded-lg border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-500"
+                                            className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                                         />
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@ export default function Contact() {
                                     <label className="mb-2 block text-sm font-medium text-gray-700">
                                         Subject
                                     </label>
-                                    <select className="w-full rounded-lg border border-gray-200 px-4 py-3 text-gray-500 outline-none transition focus:border-primary-500">
+                                    <select className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-700 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
                                         <option>Select a subject</option>
                                         <option>General Inquiry</option>
                                         <option>Order Support</option>
@@ -148,13 +148,13 @@ export default function Contact() {
                                 </div>
 
                                 <div>
-                                    <label className="mb-2 block text-sm font-medium text-gray-700">
+                                    <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
                                         Message
                                     </label>
                                     <textarea
                                         rows="6"
                                         placeholder="Write your message here..."
-                                        className="w-full resize-none rounded-lg border border-gray-200 px-4 py-3 outline-none transition focus:border-primary-500"
+                                        className="w-full resize-none rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-primary-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
                                     />
                                 </div>
 
@@ -168,11 +168,11 @@ export default function Contact() {
                         </div>
 
                         {/* Help Center */}
-                        <div className="mt-6 rounded-xl border border-primary-100 bg-primary-50 p-6">
-                            <h3 className="text-lg font-bold text-gray-900">
+                        <div className="mt-6 rounded-xl border border-primary-100 bg-primary-50 p-6 dark:border-primary-600/30 dark:bg-slate-900/80">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100">
                                 Looking for quick answers?
                             </h3>
-                            <p className="mt-2 text-gray-600">
+                            <p className="mt-2 text-gray-600 dark:text-slate-400">
                                 Check out our Help Center for frequently asked questions about
                                 orders, shipping, returns, and more.
                             </p>
@@ -217,16 +217,16 @@ export default function Contact() {
 
 function ContactInfoCard({ icon, title, subtitle, text }) {
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
             <div className="flex gap-4">
                 <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600">
                     {icon}
                 </div>
 
                 <div>
-                    <h3 className="font-bold text-gray-900">{title}</h3>
-                    <p className="mt-1 text-sm text-gray-500">{subtitle}</p>
-                    <p className="mt-2 font-medium text-gray-800">{text}</p>
+                    <h3 className="font-bold text-gray-900 dark:text-slate-100">{title}</h3>
+                    <p className="mt-1 text-sm text-gray-500 dark:text-slate-400">{subtitle}</p>
+                    <p className="mt-2 font-medium text-gray-800 dark:text-slate-200">{text}</p>
                 </div>
             </div>
         </div>
@@ -235,12 +235,12 @@ function ContactInfoCard({ icon, title, subtitle, text }) {
 
 function FeatureCard({ icon, title, text }) {
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
+        <div className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900">
             <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary-100 text-xl text-primary-600">
                 {icon}
             </div>
-            <h4 className="mt-4 font-bold text-gray-900">{title}</h4>
-            <p className="mt-1 text-sm text-gray-500">{text}</p>
+            <h4 className="mt-4 font-bold text-gray-900 dark:text-slate-100">{title}</h4>
+            <p className="mt-1 text-sm text-gray-500 dark:text-slate-400">{text}</p>
         </div>
     );
 }

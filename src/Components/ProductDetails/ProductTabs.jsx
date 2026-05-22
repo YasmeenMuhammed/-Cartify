@@ -27,57 +27,68 @@ export default function ProductTabs({ productDetails }) {
 
     return (
         <>
-            <section id='tabs' className='py-8'>
+            <section id='tabs' className='py-8 dark:text-slate-200'>
                 <div className="container mx-auto px-4">
-                    <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-                        <div className="border-b border-gray-200">
-                            <div className="md:flex overflow-x-hidden md:scrollbar-hide ">
+                    <div className="overflow-hidden rounded-2xl bg-white shadow-sm border border-gray-100 dark:bg-slate-900 dark:border-slate-700">
 
+                        {/* Tabs Header */}
+                        <div className="border-b border-gray-200 dark:border-slate-700">
+                            <div className="md:flex overflow-x-auto scrollbar-hide">
+
+                                {/* Details */}
                                 <button
                                     onClick={() => setActiveTab('details')}
-                                    className={`w-full md:w-auto flex items-center gap-2 px-6 hover:text-primary-600 hover:bg-gray-50/50 py-4 font-medium whitespace-nowrap transition-all duration-200 text-gray-600
-                                         ${activeTab === "details" && "text-primary-600 border-b-2 border-primary-600 bg-primary-50/50"}
-                                     `}>
-                                    <RiBox3Fill />
-
+                                    className={`w-full md:w-auto flex items-center justify-center gap-2 px-6 py-4 font-medium whitespace-nowrap transition-all duration-300
+                            
+                            ${activeTab === "details"
+                                            ? "text-primary-600 border-b-2 border-primary-600 bg-primary-50/70 dark:bg-primary-500/10 dark:text-primary-400"
+                                            : "text-gray-600 hover:text-primary-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-primary-400"
+                                        }
+                        `}
+                                >
+                                    <RiBox3Fill className='text-lg' />
                                     Product Details
-
                                 </button>
+
+                                {/* Reviews */}
                                 <button
                                     onClick={() => setActiveTab('reviews')}
-                                    className={` w-full md:w-auto flex items-center gap-2 px-6 py-4  hover:text-primary-600 hover:bg-gray-50/50 font-medium whitespace-nowrap transition-all duration-200 text-gray-600
-                                         ${activeTab === "reviews" && "text-primary-600 border-b-2 border-primary-600 bg-primary-50/50"}
-                                     `}>
-                                    <FaStar />
-
-
+                                    className={`w-full md:w-auto flex items-center justify-center gap-2 px-6 py-4 font-medium whitespace-nowrap transition-all duration-300
+                            
+                            ${activeTab === "reviews"
+                                            ? "text-primary-600 border-b-2 border-primary-600 bg-primary-50/70 dark:bg-primary-500/10 dark:text-primary-400"
+                                            : "text-gray-600 hover:text-primary-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-primary-400"
+                                        }
+                        `}
+                                >
+                                    <FaStar className='text-sm' />
                                     Reviews ({reviews.length})
-
                                 </button>
+
+                                {/* Shipping */}
                                 <button
                                     onClick={() => setActiveTab('shipping')}
-                                    className={`w-full md:w-auto flex items-center gap-2 px-6 py-4 font-medium whitespace-nowrap  hover:text-primary-600 hover:bg-gray-50/50 transition-all duration-200 text-gray-600
-                                         ${activeTab === "shipping" && "text-primary-600 border-b-2 border-primary-600 bg-primary-50/50"}
-                                     `}
-
+                                    className={`w-full md:w-auto flex items-center justify-center gap-2 px-6 py-4 font-medium whitespace-nowrap transition-all duration-300
+                            
+                            ${activeTab === "shipping"
+                                            ? "text-primary-600 border-b-2 border-primary-600 bg-primary-50/70 dark:bg-primary-500/10 dark:text-primary-400"
+                                            : "text-gray-600 hover:text-primary-600 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-primary-400"
+                                        }
+                        `}
                                 >
-                                    <FaTruck />
-
+                                    <FaTruck className='text-sm' />
                                     Shipping & Returns
-
                                 </button>
 
-
                             </div>
-
                         </div>
-                        <div className="p-6">
+
+                        {/* Tab Content */}
+                        <div className="p-6 bg-white dark:bg-slate-900">
                             {getActiveTab()}
                         </div>
                     </div>
-
                 </div>
-
             </section>
         </>
     )
